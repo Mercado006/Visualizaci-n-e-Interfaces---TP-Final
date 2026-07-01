@@ -1,0 +1,329 @@
+/* ── TOKENS ────────────────────────────────────────── */
+:root {
+    --purple:   #413074;
+    --lavender: #736FA1;
+    --teal:     #0FB7B8;
+    --bg:       #F7F8FA;
+    --white:    #ffffff;
+    --text:     #1a1a2e;
+    --muted:    #6b7280;
+    --border:   #e5e7eb;
+    --hero-bg:  #eaf0f9;
+    --radius:   12px;
+    --star:     #f59e0b;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+    font-family: 'Roboto', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding-top: 60px;
+}
+img { max-width: 100%; display: block; }
+
+/* ── NAVBAR (igual que home) ───────────────────────── */
+nav {
+    position: fixed; top: 0; z-index: 100; width: 100%;
+    background: var(--purple);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5%; height: 60px;
+    box-shadow: 0 2px 12px rgba(65,48,116,.25);
+}
+.nav-logo {
+    display: flex; align-items: center; gap: 10px;
+    color: var(--white);
+    font-family: 'League Spartan', sans-serif;
+    font-size: 1.2rem; font-weight: 700;
+    text-decoration: none;
+}
+.nav-logo svg { width: 26px; height: 26px; }
+.nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+.nav-links a {
+    color: rgba(255,255,255,.85); text-decoration: none;
+    font-family: 'League Spartan', sans-serif;
+    font-size: .92rem; font-weight: 600; letter-spacing: .03em;
+    transition: color .2s;
+}
+.nav-links a:hover { color: var(--teal); }
+.nav-links a.active { color: var(--teal); }
+.nav-cta {
+    background: var(--teal) !important; color: var(--white) !important;
+    padding: 7px 20px; border-radius: 50px; font-weight: 700 !important;
+}
+.nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+.nav-hamburger span { width: 24px; height: 2px; background: var(--white); border-radius: 2px; }
+
+/* ── PAGE HEADER ────────────────────────────────────── */
+.page-header {
+    background: linear-gradient(135deg, var(--purple) 0%, #5a4a90 100%);
+    padding: 56px 5% 48px;
+    text-align: center;
+}
+.page-header p.eyebrow {
+    font-family: 'League Spartan', sans-serif;
+    font-size: .78rem; font-weight: 700;
+    letter-spacing: .14em; text-transform: uppercase;
+    color: var(--teal); margin-bottom: 12px;
+}
+.page-header h1 {
+    font-family: 'Merriweather', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 700; color: var(--white);
+    line-height: 1.2; margin-bottom: 14px;
+}
+.page-header p.subtitle {
+    font-family: 'Roboto', sans-serif;
+    color: rgba(255,255,255,.72);
+    font-size: .98rem; max-width: 540px; margin: 0 auto;
+}
+
+/* ── LAYOUT ─────────────────────────────────────────── */
+.page-body {
+    display: flex;
+    max-width: 1260px;
+    margin: 0 auto;
+    padding: 48px 5% 80px;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+/* ── SIDEBAR: ESPECIALIDADES ────────────────────────── */
+.sidebar {
+    width: 220px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 76px;
+}
+.sidebar-title {
+    font-family: 'Merriweather', serif;
+    font-size: .78rem; font-weight: 700;
+    letter-spacing: .1em; text-transform: uppercase;
+    color: var(--lavender); margin-bottom: 14px;
+    padding-left: 4px;
+}
+        .spec-select {
+            width: 100%;
+            padding: 10px 14px;
+            margin-bottom: 14px;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            font-family: 'Roboto', sans-serif;
+            font-size: .88rem;
+            font-weight: 500;
+            color: var(--text);
+            background: var(--white);
+            cursor: pointer;
+            transition: border-color .2s;
+            appearance: auto;
+        }
+        .spec-select:focus { border-color: var(--teal); outline: none; }
+        .specialty-list { list-style: none; display: flex; flex-direction: column; gap: 4px; }
+.specialty-list li button {
+    width: 100%;
+    background: none; border: none; cursor: pointer;
+    text-align: left;
+    font-family: 'Roboto', sans-serif;
+    font-size: .9rem; font-weight: 500;
+    color: var(--muted);
+    padding: 10px 14px;
+    border-radius: 8px;
+    transition: background .15s, color .15s;
+    display: flex; align-items: center; gap: 10px;
+}
+.specialty-list li button:hover { background: rgba(65,48,116,.07); color: var(--purple); }
+.specialty-list li button.active {
+    background: var(--purple); color: var(--white); font-weight: 700;
+}
+.specialty-list li button .spec-icon {
+    width: 20px; height: 20px; flex-shrink: 0; opacity: .7;
+}
+.specialty-list li button.active .spec-icon { opacity: 1; }
+
+/* ── MAIN CONTENT ───────────────────────────────────── */
+.main-content { flex: 1; min-width: 0; }
+.specialty-section { display: none; }
+.specialty-section.active { display: block; }
+
+.section-heading {
+    display: flex; align-items: baseline; gap: 12px;
+    margin-bottom: 32px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid var(--border);
+}
+.section-heading h2 {
+    font-family: 'Merriweather', serif;
+    font-size: 1.55rem; font-weight: 700;
+    color: var(--purple);
+}
+.section-heading .count {
+    font-family: 'Roboto', sans-serif;
+    font-size: .82rem; font-weight: 500;
+    color: var(--lavender);
+    background: rgba(115,111,161,.12);
+    padding: 3px 10px; border-radius: 50px;
+}
+
+/* ── DOCTOR CARDS ───────────────────────────────────── */
+.doctors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 28px;
+}
+.doctor-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: 0 2px 16px rgba(65,48,116,.07);
+    overflow: hidden;
+    transition: transform .2s, box-shadow .2s;
+}
+.doctor-card:hover { transform: translateY(-4px); box-shadow: 0 10px 32px rgba(65,48,116,.13); }
+
+/* doctor card top */
+.card-top {
+    display: flex; gap: 16px; align-items: flex-start;
+    padding: 24px 24px 16px;
+}
+.doctor-photo {
+    width: 80px; height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    border: 3px solid var(--hero-bg);
+    background: var(--hero-bg);
+}
+.doctor-photo-placeholder {
+    width: 80px; height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--lavender) 0%, var(--teal) 100%);
+    flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'League Spartan', sans-serif;
+    font-size: 1.6rem; font-weight: 700;
+    color: var(--white);
+    border: 3px solid var(--hero-bg);
+}
+.doctor-meta { flex: 1; }
+.doctor-meta h3 {
+    font-family: 'Merriweather', serif;
+    font-size: 1.05rem; font-weight: 700;
+    color: var(--text); margin-bottom: 3px; line-height: 1.3;
+}
+.doctor-meta .specialty-badge {
+    display: inline-block;
+    background: rgba(15,183,184,.13);
+    color: var(--teal);
+    font-family: 'Roboto', sans-serif;
+    font-size: .72rem; font-weight: 700;
+    letter-spacing: .06em; text-transform: uppercase;
+    padding: 3px 10px; border-radius: 50px;
+    margin-bottom: 6px;
+}
+.doctor-info-row {
+    font-family: 'Roboto', sans-serif;
+    font-size: .8rem; color: var(--muted);
+    display: flex; flex-wrap: wrap; gap: 4px 12px;
+    margin-top: 4px;
+}
+.doctor-info-row span { display: flex; align-items: center; gap: 4px; }
+.doctor-info-row svg { width: 13px; height: 13px; flex-shrink: 0; }
+
+/* degree */
+.card-degree {
+    padding: 0 24px 14px;
+    font-family: 'Roboto', sans-serif;
+    font-size: .8rem; color: var(--lavender);
+    font-style: italic;
+    display: flex; align-items: center; gap: 6px;
+}
+.card-degree svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+/* description */
+.card-desc {
+    padding: 0 24px 18px;
+    font-family: 'Roboto', sans-serif;
+    font-size: .88rem; color: var(--muted);
+    line-height: 1.65;
+    border-bottom: 1px solid var(--border);
+}
+
+/* reviews */
+.card-reviews { padding: 18px 24px 24px; }
+.reviews-title {
+    font-family: 'Merriweather', serif;
+    font-size: .78rem; font-weight: 700;
+    letter-spacing: .08em; text-transform: uppercase;
+    color: var(--lavender); margin-bottom: 14px;
+}
+.review-item { margin-bottom: 14px; }
+.review-item:last-child { margin-bottom: 0; }
+.review-header { display: flex; align-items: center; gap: 10px; margin-bottom: 5px; }
+.reviewer-photo {
+    width: 32px; height: 32px;
+    border-radius: 50%; object-fit: cover;
+    background: var(--hero-bg);
+    flex-shrink: 0;
+}
+.reviewer-photo-placeholder {
+    width: 32px; height: 32px;
+    border-radius: 50%; flex-shrink: 0;
+    background: linear-gradient(135deg, var(--purple) 0%, var(--lavender) 100%);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'League Spartan', sans-serif;
+    font-size: .7rem; font-weight: 700; color: var(--white);
+}
+.reviewer-info { flex: 1; }
+.reviewer-name {
+    font-family: 'Roboto', sans-serif;
+    font-size: .82rem; font-weight: 700; color: var(--text);
+}
+.stars { color: var(--star); font-size: .75rem; letter-spacing: 1px; }
+.review-text {
+    font-family: 'Roboto', sans-serif;
+    font-size: .82rem; color: var(--muted);
+    line-height: 1.55;
+    padding-left: 42px;
+}
+.review-divider { border: none; border-top: 1px dashed var(--border); margin: 12px 0; }
+
+/* ── FOOTER ─────────────────────────────────────────── */
+footer {
+    background: var(--text);
+    color: rgba(255,255,255,.65);
+    padding: 36px 5%;
+    display: flex; align-items: center; justify-content: space-between;
+    font-family: 'League Spartan', sans-serif;
+    font-size: .82rem; gap: 20px; flex-wrap: wrap;
+}
+footer .footer-logo { color: var(--white); font-size: 1rem; font-weight: 700; }
+footer .footer-center { text-align: center; }
+footer .footer-social { display: flex; align-items: center; gap: 14px; }
+footer .footer-social a { color: rgba(255,255,255,.6); transition: color .2s; }
+footer .footer-social a:hover { color: var(--teal); }
+footer .footer-social svg { width: 20px; height: 20px; }
+
+/* ── RESPONSIVE ─────────────────────────────────────── */
+@media (min-width: 1200px) {
+    nav { padding: 0 8%; height: 72px; }
+    body { padding-top: 72px; }
+    .page-header { padding: 72px 8% 60px; }
+    .page-body { padding: 56px 8% 100px; gap: 56px; }
+    .sidebar { width: 240px; }
+    .doctors-grid { grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 32px; }
+    footer { padding: 44px 8%; }
+}
+@media (max-width: 900px) {
+    .page-body { flex-direction: column; padding: 32px 4% 60px; }
+    .sidebar { width: 100%; position: static; }
+    .specialty-list { flex-direction: row; flex-wrap: wrap; gap: 8px; }
+    .specialty-list li { flex: 1; min-width: 140px; }
+    .specialty-list li button { justify-content: center; }
+}
+@media (max-width: 600px) {
+    .doctors-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+    footer { flex-direction: column; text-align: center; }
+    footer .footer-social { justify-content: center; }
+}

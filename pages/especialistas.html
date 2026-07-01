@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clínica X — Profesionales</title>
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;600;700&family=Amaranth:ital,wght@0,400;0,700;1,400&family=Merriweather:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/especialistas.css" />
+</head>
+<body>
+
+<div id="header"></div>
+
+<!-- ── PAGE HEADER ──────────────────────────────────────── -->
+<header class="page-header">
+    <p class="eyebrow">Nuestro equipo médico</p>
+    <h1>Profesionales de confianza</h1>
+    <p class="subtitle">Encontrá el especialista que necesitás y leé la experiencia de otros pacientes.</p>
+</header>
+
+<!-- ── BODY ─────────────────────────────────────────────── -->
+<div class="page-body">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <p class="sidebar-title">Especialidades</p>
+        <select class="spec-select" id="specSelect" onchange="jumpToSpec(this)">
+            <option value="">Buscar especialidad…</option>
+            <option value="clinico">Médico Clínico</option>
+            <option value="cardiologia">Cardiología</option>
+            <option value="pediatria">Pediatría</option>
+            <option value="dermatologia">Dermatología</option>
+            <option value="nutricion">Nutrición</option>
+        </select>
+        <ul class="specialty-list" id="specList">
+            <li>
+                <button class="active" data-target="clinico" onclick="switchSpec(this)">
+                    <svg class="spec-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                    Médico Clínico
+                </button>
+            </li>
+            <li>
+                <button data-target="cardiologia" onclick="switchSpec(this)">
+                    <svg class="spec-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                    Cardiología
+                </button>
+            </li>
+            <li>
+                <button data-target="pediatria" onclick="switchSpec(this)">
+                    <svg class="spec-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/></svg>
+                    Pediatría
+                </button>
+            </li>
+            <li>
+                <button data-target="dermatologia" onclick="switchSpec(this)">
+                    <svg class="spec-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    Dermatología
+                </button>
+            </li>
+            <li>
+                <button data-target="nutricion" onclick="switchSpec(this)">
+                    <svg class="spec-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2z"/><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/></svg>
+                    Nutrición
+                </button>
+            </li>
+        </ul>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main-content">
+
+        <!-- ════════════════════════════════════════ MÉDICO CLÍNICO -->
+        <section class="specialty-section active" id="clinico">
+            <div class="section-heading">
+                <h2>Médico Clínico</h2>
+                <span class="count">4 profesionales</span>
+            </div>
+            <div class="doctors-grid">
+
+                <!-- Dr. Ramírez -->
+                <div class="doctor-card">
+                    <div class="card-top">
+                        <div class="doctor-photo-placeholder">LR</div>
+                        <div class="doctor-meta">
+                            <h3>Dr. Luis Ramírez</h3>
+                            <span class="specialty-badge">Médico Clínico</span>
+                            <div class="doctor-info-row">
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  52 años
+                </span>
+                                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  UBA
+                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-degree">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                        Medicina Interna — Universidad de Buenos Aires
+                    </div>
+                    <div class="card-desc">
+                        Especialista en diagnóstico integral con más de 25 años de trayectoria. Enfoque preventivo y atención personalizada para pacientes de todas las edades.
+                    </div>
+                    <div class="card-reviews">
+                        <p class="reviews-title">Reseñas de pacientes</p>
+                        <div class="review-item">
+                            <div class="review-header">
+                                <div class="reviewer-photo-placeholder">MG</div>
+                                <div class="reviewer-info">
+                                    <div class="reviewer-name">Marcela G.</div>
+                                    <div class="stars">★★★★★</div>
+                                </div>
+                            </div>
+                            <p class="review-text">El Dr. Ramírez es muy atento y explica todo con paciencia. Me di cuenta de que tenía un problema de presión que no sabía. ¡Lo recomiendo!</p>
+                        </div>
+                        <hr class="review-divider" />
+                        <div class="review-item">
+                            <div class="review-header">
+                                <div class="reviewer-photo-placeholder">JP</div>
+                                <div class="reviewer-info">
+                                    <div class="reviewer-name">Javier P.</div>
+                                    <div class="stars">★★★★☆</div>
+                                </div>
+                            </div>
+                            <p class="review-text">Muy buen profesional, aunque a veces espera un poco. El diagnóstico fue certero y el seguimiento excelente.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dra. Fernández -->
+                <div class="doctor-card">
+                    <div class="card-top">
+                        <div class="doctor-photo-placeholder">SF</div>
+                        <div class="doctor-meta">
+                            <h3>Dra. Sofía Fernández</h3>
+                            <span class="specialty-badge">Médico Clínico</span>
+                            <div class="doctor-info-row">
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  38 años
+                </span>
+                                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  UNR
+                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-degree">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                        Medicina General — Universidad Nacional de Rosario
+                    </div>
+                    <div class="card-desc">
+                        Comprometida con la salud preventiva y el bienestar integral. Especialista en manejo de enfermedades crónicas y chequeos periódicos.
+                    </div>
+                    <div class="card-reviews">
+                        <p class="reviews-title">Reseñas de pacientes</p>
+                        <div class="review-item">
+                            <div class="review-header">
+                                <div class="reviewer-photo-placeholder">AL</div>
+                                <div class="reviewer-info">
+                                    <div class="reviewer-name">Analía L.</div>
+                                    <div class="stars">★★★★★</div>
+                                </div>
+                            </div>
+                            <p class="review-text">La doctora Fernández es increíble. Me explicó mi diagnóstico de manera clara y me dio herramientas para mejorar mi calidad de vida.</p>
+                        </div>
+                        <hr class="review-divider" />
+                        <div class="review-item">
+                            <div class="review-header">
+                                <div class="reviewer-photo-placeholder">CR</div>
+                                <div class="reviewer-info">
+                                    <div class="reviewer-name">Carlos R.</div>
+                                    <div class="stars">★★★★★</div>
+                                </div>
+                            </div>
+                            <p class="review-text">Consulta muy completa. Revisó todo y hasta me mandó a hacer estudios preventivos que nunca me habían pedido. 10 puntos.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dr. Morales -->
+                <div class="doctor-card">
+                    <div class="card-top">
+                        <div class="doctor-photo-placeholder">EM</div>
+                        <div class="doctor-meta">
+                            <h3>Dr. Esteban Morales</h3>
+                            <span class="specialty-badge">Médico Clínico</span>
+                            <div class="doctor-info-row">
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  46 años
+                </span>
+                                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  UNC
+                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-degree">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                        Clínica Médica — Universidad Nacional de Córdoba
+                    </div>
+                    <div class="card-desc">
+                        Con formación en medicina interna y más de 18 años de práctica, se especializa en el abordaje de patologías crónicas complejas y acompañamiento integral al paciente.
+                    </div>
+                    <div class="card-reviews">
+                        <p class="reviews-title">Reseñas de pacientes</p>
+                        <div class="review-item">
+                            <div class="review-header">
+                                <div class="reviewer-photo-placeholder">VT</div>
+                                <div class="reviewer-info">
+                                    <div class="reviewer-name">Valentina T.</div>
+                                    <div class="stars">★★★★☆</div>
+                                </div>
+                            </div>
+                            <p class="review-text">Muy profesional y detallista. Me hizo sentir escuchada. El turno me lo dieron rápido por la app, que estuvo buenísimo.</p>
+                        </div>
+                        <hr class="review-divider" />
+                        <div class="review-item">
+                            <div class="review-header">
+                                <div class="reviewer-photo-placeholder">RB</div>
+                                <div class="reviewer-info">
+                                    <div class="reviewer-name">Rodrigo B.</div>
+                                    <div class="stars">★★★★★</div>
+                                </div>
+                            </div>
+                            <p class="review-text">El mejor clínico que tuve hasta ahora. Dedica tiempo real a la consulta y no te apura. Muy recomendado.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dra. Vidal -->
+                <div class="doctor-card">
+                    <div class="card-top">
+                        <div class="doctor-photo-placeholder">PV</div>
+                        <div class="doctor-meta">
+                            <h3>Dra. Patricia Vidal</h3>
+                            <span class="specialty-badge">Médico Clínico</span>
+                            <div class="doctor-info-row">
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  59 años
+                </span>
+                                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  UBA
+                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-degree">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                        Medicina Interna · Subespecialidad en Reumatología — UBA
+                    </div>
+                    <div class="card-desc">
+                        Treinta años de experiencia en medicina interna con énfasis en enfermedades autoinmunes. Referente en atención a pacientes adultos mayores con patologías complejas.
+                    </div>
+                    <div class="card-reviews">
+                        <p class="reviews-title">Reseñas de pacientes</p>
+                        <div class="review-item">
+                            <div class="review-header">
+                                <div class="reviewer-photo-placeholder">NS</div>
+                                <div class="reviewer-info">
+                                    <div class="reviewer-name">Norma S.</div>
+                                    <div class="stars">★★★★★</div>
+                                </div>
+                            </div>
+                            <p class="review-text">La doctora Vidal me atiende hace años. Siempre atenta, nunca apurada. Para mí es la mejor de la clínica.</p>
+                        </div>
+                        <hr class="review-divider" />
+                        <div class="review-item">
+                            <div class="review-header">
+                                <div class="reviewer-photo-placeholder">HM</div>
+                                <div class="reviewer-info">
+                                    <div class="reviewer-name">Hugo M.</div>
+                                    <div class="stars">★★★★☆</div>
+                                </div>
+                            </div>
+                            <p class="review-text">Excelente clínica, muy completa. A veces los turnos se corren, pero la calidad de la atención bien vale la espera.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ════════════════════════════════════════ CARDIOLOGÍA -->
+        <section class="specialty-section" id="cardiologia">
+            <div class="section-heading">
+                <h2>Cardiología</h2>
+                <span class="count">4 profesionales</span>
+            </div>
+            <div class="doctors-grid">
+
+                <div class="doctor-card">
+                    <div class="card-top">
+                        <div class="doctor-photo-placeholder">AG</div>
+                        <div class="doctor-meta">
+                            <h3>Dr. Andrés Gutiérrez</h3>
+                            <span class="specialty-badge">Cardiología</span>
+                            <div class="doctor-info-row">
+                                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>48 años</span>
+                                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Favaloro</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-degree">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                        Cardiología Clínica — Universidad Favaloro
+                    </div>
+                    <div class="card-desc">Especialista en ecocardiografía y arritmias. Más de 20 años dedicados al diagnóstico y tratamiento de enfermedades cardiovasculares.</div>
+                    <div class="card-reviews">
+                        <p class="reviews-title">Reseñas de pacientes</p>
+                        <div class="review-item">
+                            <div class="review-header"><div class="reviewer-photo-placeholder">EV</div><div class="reviewer-info"><div class="reviewer-name">Elena V.</div><div class="stars">★★★★★</div></div></div>
+                            <p class="review-text">Me detectó una arritmia que otros médicos habían pasado por alto. Gracias al Dr. Gutiérrez hoy estoy bien controlada.</p>
+                        </div>
+                        <hr class="review-divider" />
+                        <div class="review-item">
+                            <div class="review-header"><div class="reviewer-photo-placeholder">FM</div><div class="reviewer-info"><div class="reviewer-name">Federico M.</div><div class="stars">★★★★★</div></div></div>
+                            <p class="review-text">Profesional de primer nivel. Explica todo clarísimo y da mucha tranquilidad. La mejor decisión fue consultarlo.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doctor-card">
+                    <div class="card-top">
+                        <div class="doctor-photo-placeholder">LC</div>
+                        <div class="doctor-meta">
+                            <h3>Dra. Laura Castillo</h3>
+                            <span class="specialty-badge">Cardiología</span>
+                            <div class="doctor-info-row">
+                                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>41 años</span>
+                                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>UBA</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-degree">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                        Cardiología — UBA · Fellow ACC
+                    </div>
+                    <div class="card-desc">Especializada en cardiología preventiva y salud cardiovascular femenina. Enfoque integral que combina tecnología de punta con trato humanizado.</div>
+                    <div class="card-reviews">
+                        <p class="reviews-title">Reseñas de pacientes</p>
+                        <div class="review-item">
+                            <div class="review-header"><div class="reviewer-photo-placeholder">GR</div><div class="reviewer-info"><div class="reviewer-name">Graciela R.</div><div class="stars">★★★★★</div></div></div>
+                            <p class="review-text">Por fin una cardióloga que entiende las particularidades del corazón femenino. Me fui con todo claro y sin miedo.</p>
+                        </div>
+                        <hr class="review-divider" />
+                        <div class="review-item">
+                            <div class="review-header"><div class="reviewer-photo-placeholder">DP</div><div class="reviewer-info"><div class="reviewer-name">Diego P.</div><div class="stars">★★★★☆</div></div></div>
+                            <p class="review-text">Muy buena atención, rápida y precisa. Me mandó hacer un holter y en dos días ya tenía el resultado.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doctor-card">
+                    <div class="card-top">
+                        <div class="doctor-photo-placeholder">RO</div>
+                        <div class="doctor-meta">
+                            <h3>Dr. Roberto Olmedo</h3>
+                            <span class="specialty-badge">Cardiología</span>
+                            <div class="doctor-info-row">
+                                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>55 años</span>
+                                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>UNL</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-degree">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                        Cardiología Intervencionista — Universidad Nacional del Litoral
+                    </div>
+                    <div class="card-desc">Experto en hemodinamia y cateterismo cardíaco. Realizó más de 2.000 procedimientos intervencionistas con excelentes resultados.</div>
+                    <div class="card-reviews">
+                        <p class="reviews-title">Reseñas de pacientes</p>
+                        <div class="review-item">
+                            <div class="review-header"><div class="reviewer-photo-placeholder">OS</div><div class="reviewer-info"><div class="reviewer-name">Oscar S.</div><div class="stars">★★★★★</div></div></div>
+                            <p class="review-text">Me operó del corazón y hoy estoy perfectamente. Un maestro en lo suyo, con mucha calma y seguridad.</p>
+                        </div>
+                        <hr class="review-divider" />
+                        <div class="review-item">
+                            <div class="review-header"><div class="reviewer-photo-placeholder">IK</div><div class="reviewer-info"><div class="reviewer-name">Irene K.</div><div class="stars">★★★★★</div></div></div>
+                            <p class="review-text">Gracias al Dr. Olmedo mi papá pudo evitar una cirugía mayor. Profesionalismo total desde el primer día.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doctor-card">
+                    <div class="card-top">
+                        <div class="doctor-photo-placeholder">MT</div>
+                        <div class="doctor-meta">
+                            <h3>Dra. Mercedes Torres</h3>
+                            <span class="specialty-badge">Cardiología</span>
+                            <div class="doctor-info-row">
+                                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>36 años</span>
+                                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Austral</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-degree">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                        Cardiología Clínica — Universidad Austral
+                    </div>
+                    <div class="card-desc">Joven especialista enfocada en cardiopatías congénitas y seguimiento de pacientes post-quirúrgicos. Referente en teleconsulta cardiológica.</div>
+                    <div class="card-reviews">
+                        <p class="reviews-title">Reseñas de pacientes</p>
+                        <div class="review-item">
+                            <div class="review-header"><div class="reviewer-photo-placeholder">LN</div><div class="reviewer-info"><div class="reviewer-name">Lucía N.</div><div class="stars">★★★★★</div></div></div>
+                            <p class="review-text">Atiende a mi hijo con una cardiopatía desde pequeño. Siempre actualizada y muy dedicada. No la cambiaría por nadie.</p>
+                        </div>
+                        <hr class="review-divider" />
+                        <div class="review-item">
+                            <div class="review-header"><div class="reviewer-photo-placeholder">TW</div><div class="reviewer-info"><div class="reviewer-name">Tomás W.</div><div class="stars">★★★★☆</div></div></div>
+                            <p class="review-text">Hice la teleconsulta y salí muy tranquilo. Se nota que le importa el paciente más allá del consultorio.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ════════════════════════════════════════ PEDIATRÍA -->
+        <section class="specialty-section" id="pediatria">
+            <div class="section-heading">
+                <h2>Pediatría</h2>
+                <span class="count">4 profesionales</span>
+            </div>
+            <div class="doctors-grid">
+
+                <div class="doctor-card">
+                    <div class="card-top">
+                        <div class="doctor-photo-placeholder">CB</div>
+                        <div class="doctor-meta">
+                            <h3>Dra. Claudia Benítez</h3>
+                            <span class="specialty-badge">Pediatría</span>
+                            <div class="doctor-info-row">
+                                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>44 años</span>
+                                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>UBA</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-degree">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                        Pediatría General — UBA · Especialización en Neonatología
+                    </div>
+                    <div class="card-desc">Pediatra con enfoque en desarrollo infantil y neonatología. Atiende desde recién nacidos hasta adolescentes con calidez y rigor profesional.</div>
+                    <div class="card-reviews">
+                        <p class="reviews-title">Reseñas de pacientes</p>
+                        <div class="review-item">
+                            <div class="review-header"><div class="reviewer-photo-placeholder">SC</div><div class="reviewer-info"><div class="reviewer-name">Sebastián C.</div><div class="stars">★★★★★</div></div></div>
+                            <p class="review-text">Mi hijo la adora. Tiene una paciencia increíble con los chicos. La recomendamos a toda la familia.</p>
+                        </div>
+                        <hr class="review-divider" />
+                        <div class="review-item">
+                            <div class="review-header"><div class="reviewer-photo-placeholder">KD</div><div class="reviewer-info"><div class="reviewer-name">Karina D.</div><div class="stars">★★★★★</div></div></div>
+                            <p class="review-text">Nos acompañó en el primer año de vida de nuestra hija prematura. Una profesional extraordinaria.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doctor-card">
+                    <div class="card-top">
+                        <div class="doctor-photo-placeholder">MH</div>
+                        <div class="doctor-meta">
+                            <h3>Dr. Martín Herrera</h3>
+                            <span class="specialty-badge">Pediatría</span>
+                            <div class="doctor-info-row">
+                                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>39 años</span>
+                                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>UNC</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-degree">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                        Pediatría — UNC · Subespecialidad en Infectología Pediátrica
+                    </div>
+                    <div class="card-desc">Infectólogo pediatra con experiencia en enfermedades infecciosas complejas. Participa activamente en campañas de vacunación y salud preventiva infantil.</div>
+                    <div class="card-reviews">
+                        <p class="reviews-title">Reseñas de pacientes</p>
+                        <div class="review-item">
+                            <div class="review-header"><div class="reviewer-photo-placeholder">PL</div><div class="reviewer-info"><div class="reviewer-name">Paula L.</div><div class="stars">★★★★★</div></div></div>
+                            <p class="review-text">El Dr. Herrera diagnosticó rápido lo que tenía mi nena cuando otros no daban con ello. Eternamente agradecida.</p>
+                        </div>
+                        <hr class="review-divider" />
+                        <div class="review-item">
+                            <div class="review-header"><div class="reviewer-photo-placeholder">NF</div><div class="reviewer-info"><div class="reviewer-name">Nicolás F.</div><div class="stars">★★★★☆</div></div></div>
+                            <p class="review-text">Muy buen médico, explica bien los diagnósticos y tranquiliza a los padres. La app para sacar turnos es muy práctica.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doctor-card">
+                    <div class="card-top">
+                        <div class="doctor-photo-placeholder">IV</div>
+                        <div class="doctor-meta">
+                            <h3>Dra. Inés Vargas</h3>
+                            <span class="specialty-badge">Pediatría</span>
+                            <div class="doctor-info-row">
+                                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>51 años</span>
+                                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>UBA</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-degree">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                        Pediatría y Adolescencia — UBA
+                    </div>
+                    <div class="card-desc">Referente en salud adolescente y trastornos del desarrollo. Más de 20 años acompañando familias con un enfoque empático y basado en evidencia.</div>
+                    <div class="card-reviews">
+                        <p class="reviews-title">Reseñas de pacientes</p>
+                        <div class="review-item">
+                            <div class="review-header"><div class="reviewer-photo-placeholder">BQ</div><div class="reviewer-info"><div class="reviewer-name">Beatriz Q.</div><div class="stars">★★★★★</div></div></div>
+                            <p class="review-text">La doctora Vargas acompañó a mi hijo adolescente con mucha sensibilidad en un momento difícil. Invaluable.</p>
+                        </div>
+                        <hr class="review-divider" />
+                        <div class="review-item">
+                            <div class="review-header"><div class="reviewer-photo-placeholder">MJ</div><div class="reviewer-info"><div class="reviewer-name">Marcos J.</div><div class="stars">★★★★☆</div></div></div>
+                            <p class="review-text">Muy buena pediatra, especialmente para niños con necesidades especiales. Sabe perfectamente cómo comunicarse.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doctor-card">
+                    <div class="card-top">
+                        <div class="doctor-photo-placeholder">JP</div>
+                        <div class="doctor-meta">
+                            <h3>Dr. Julián Prieto</h3>
+                            <span class="specialty-badge">Pediatría</span>
+                            <div class="doctor-info-row">
+                                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>33 años</span>
+                                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Austral</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-degree">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                        Pediatría General — Universidad Austral
+                    </div>
+                    <div class="card-desc">Pediatra joven y actualizado, con fuerte vocación por la medicina preventiva y la educación a los padres. Especializado en alergias e inmunología pediátrica.</div>
+                    <div class="card-reviews">
+                        <p class="reviews-title">Reseñas de pacientes</p>
+                        <div class="review-item">
+                            <div class="review-header"><div class="reviewer-photo-placeholder">AC</div><div class="reviewer-info"><div class="reviewer-name">Andrea C.</div><div class="stars">★★★★★</div></div></div>
+                            <p class="review-text">Por fin alguien que diagnosticó correctamente la alergia de mi hijo. Muy dedicado y actualizado.</p>
+                        </div>
+                        <hr class="review-divider" />
+                        <div class="review-item">
+                            <div class="review-header"><div class="reviewer-photo-placeholder">GB</div><div class="reviewer-info"><div class="reviewer-name">Gabriel B.</div><div class="stars">★★★★★</div></div></div>
+                            <p class="review-text">Explica todo de manera simple. Salís de la consulta sabiendo exactamente qué hacer. Recomendadísimo.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ════════════════════════════════════════ DERMATOLOGÍA -->
+        <section class="specialty-section" id="dermatologia">
+            <div class="section-heading">
+                <h2>Dermatología</h2>
+                <span class="count">4 profesionales</span>
+            </div>
+            <div class="doctors-grid">
+
+                <div class="doctor-card">
+                    <div class="card-top">
+                        <div class="doctor-photo-placeholder">VR</div>
+                        <div class="doctor-meta">
+                            <h3>Dra. Valeria Ríos</h3>
+                            <span class="specialty-badge">Dermatología</span>
+                            <div class="doctor-info-row">
+                                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>37 años</span>
+                                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>UBA</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-degree">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                        Dermatología Médica y Quirúrgica — UBA
+                    </div>
+                    <div class="card-desc">Especialista en dermatología oncológica y estética. Referente en detección temprana de melanoma y tratamientos dermatológicos mínimamente invasivos.</div>
+                    <div class="card-reviews">
+                        <p class="reviews-title">Reseñas de pacientes</p>
+                        <div class="review-item">
+                            <div class="review-header"><div class="reviewer-photo-placeholder">CE</div><div class="reviewer-info"><div class="reviewer-name">Cecilia E.</div><div class="stars">★★★★★</div></div></div>
+                            <p class="review-text">Me detectó un lunar sospechoso a tiempo. Hoy estoy perfectamente bien gracias a su rapidez. Eterna gratitud.</p>
+                        </div>
+                        <hr class="review-divider" />
+                        <div class="review-item">
+                            <div class="review-header"><div class="reviewer-photo-placeholder">LH</div><div class="reviewer-info"><div class="reviewer-name">Lucas H.</div><div class="stars">★★★★☆</div></div></div>
+                            <p class="review-text">Muy buena profesional. Me trató el acné y en tres meses noté una mejora enorme. Muy recomendable.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doctor-card">
+                    <div class="card-top">
+                        <div class="doctor-photo-placeholder">FN</div>
+                        <div class="doctor-meta">
+                            <h3>Dr. Fernando Nieto</h3>
+                            <span class="specialty-badge">Dermatología</span>
+                            <div class="doctor-info-row">
+                                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>50 años</span>
+                                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>UNR</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-degree">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                        Dermatología — UNR · Especialización en Dermatopatología
+                    </div>
+                    <div class="card-desc">Dermatopatólogo con amplia experiencia en diagnóstico histológico cutáneo. Referente regional en enfermedades inflamatorias de la piel como psoriasis y dermatitis.</div>
+                    <div class="card-reviews">
+                        <p class="reviews-title">Reseñas de pacientes</p>
+                        <div class="review-item">
+                            <div class="review-header"><div class="reviewer-photo-placeholder">RZ</div><div class="reviewer-info"><div class="reviewer-name">Romina Z.</div><div class="stars">★★★★★</div></div></div>
+                            <p class="review-text">Llevo años con psoriasis y el Dr. Nieto es el único que logró controlarla bien. Un experto de verdad.</p>
+                        </div>
+                        <hr class="review-divider" />
+                        <div class="review-item">
+                            <div class="review-header"><div class="reviewer-photo-placeholder">AG</div><div class="reviewer-info"><div class="reviewer-name">Agustín G.</div><div class="stars">★★★★☆</div></div></div>
+                            <p class="review-text">Muy buena consulta, aunque podría tener más disponibilidad horaria. El diagnóstico fue muy preciso.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doctor-card">
+                    <div class="card-top">
+                        <div class="doctor-photo-placeholder">MA</div>
+                        <div class="doctor-meta">
+                            <h3>Dra. Mónica Acosta</h3>
+                            <span class="specialty-badge">Dermatología</span>
+                            <div class="doctor-info-row">
+                                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>43 años</span>
+                                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Favaloro</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-degree">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                        Dermatología Estética y Láser — Universidad Favaloro
+                    </div>
+                    <div class="card-desc">Especialista en dermatología estética, con amplio dominio de tratamientos con láser, toxina botulínica y ácido hialurónico bajo criterio médico estricto.</div>
+                    <div class="card-reviews">
+                        <p class="reviews-title">Reseñas de pacientes</p>
+                        <div class="review-item">
+                            <div class="review-header"><div class="reviewer-photo-placeholder">SB</div><div class="reviewer-info"><div class="reviewer-name">Silvana B.</div><div class="stars">★★★★★</div></div></div>
+                            <p class="review-text">Resultados increíbles con el tratamiento láser. Natural, profesional y muy transparente sobre qué esperar.</p>
+                        </div>
+                        <hr class="review-divider" />
+                        <div class="review-item">
+                            <div class="review-header"><div class="reviewer-photo-placeholder">MO</div><div class="reviewer-info"><div class="reviewer-name">Mirta O.</div><div class="stars">★★★★★</div></div></div>
+                            <p class="review-text">Me trató las manchas del embarazo y quedé re contenta. Muy prolija y el resultado fue mejor de lo esperado.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doctor-card">
+                    <div class="card-top">
+                        <div class="doctor-photo-placeholder">GS</div>
+                        <div class="doctor-meta">
+                            <h3>Dr. Gabriel Sosa</h3>
+                            <span class="specialty-badge">Dermatología</span>
+                            <div class="doctor-info-row">
+                                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>29 años</span>
+                                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>UBA</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-degree">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                        Dermatología — UBA · Residencia Hospital Ramos Mejía
+                    </div>
+                    <div class="card-desc">El más joven del equipo, con formación de excelencia en dermatología general. Experto en el manejo de acné severo, rosácea y dermatitis atópica.</div>
+                    <div class="card-reviews">
+                        <p class="reviews-title">Reseñas de pacientes</p>
+                        <div class="review-item">
+                            <div class="review-header"><div class="reviewer-photo-placeholder">JA</div><div class="reviewer-info"><div class="reviewer-name">Juliana A.</div><div class="stars">★★★★★</div></div></div>
+                            <p class="review-text">Llevo años luchando con el acné y el Dr. Sosa lo controló en dos meses. Super atento y actualizado.</p>
+                        </div>
+                        <hr class="review-divider" />
+                        <div class="review-item">
+                            <div class="review-header"><div class="reviewer-photo-placeholder">EM</div><div class="reviewer-info"><div class="reviewer-name">Emilio M.</div><div class="stars">★★★★☆</div></div></div>
+                            <p class="review-text">Joven pero muy capaz. Me trató la rosácea con un protocolo que nunca me habían propuesto. Muy conforme.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ════════════════════════════════════════ NUTRICIÓN -->
+        <section class="specialty-section" id="nutricion">
+            <div class="section-heading">
+                <h2>Nutrición</h2>
+                <span class="count">4 profesionales</span>
+            </div>
+            <div class="doctors-grid">
+
+                <div class="doctor-card">
+                    <div class="card-top">
+                        <div class="doctor-photo-placeholder">DL</div>
+                        <div class="doctor-meta">
+                            <h3>Lic. Daniela López</h3>
+                            <span class="specialty-badge">Nutrición</span>
+                            <div class="doctor-info-row">
+                                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>35 años</span>
+                                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>UBA</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-degree">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                        Lic. en Nutrición — UBA · Especialización en Nutrición Clínica
+                    </div>
+                    <div class="card-desc">Especializada en alimentación terapéutica para pacientes con diabetes, obesidad y patologías cardiovasculares. Abordaje sin dietas restrictivas.</div>
+                    <div class="card-reviews">
+                        <p class="reviews-title">Reseñas de pacientes</p>
+                        <div class="review-item">
+                            <div class="review-header"><div class="reviewer-photo-placeholder">TR</div><div class="reviewer-info"><div class="reviewer-name">Teresa R.</div><div class="stars">★★★★★</div></div></div>
+                            <p class="review-text">Cambió mi relación con la comida. Nada de dietas imposibles, sino hábitos reales y sostenibles. La mejor decisión.</p>
+                        </div>
+                        <hr class="review-divider" />
+                        <div class="review-item">
+                            <div class="review-header"><div class="reviewer-photo-placeholder">PN</div><div class="reviewer-info"><div class="reviewer-name">Pablo N.</div><div class="stars">★★★★☆</div></div></div>
+                            <p class="review-text">Me ayudó a controlar la glucemia con alimentación. Muy profesional y el seguimiento por app es genial.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doctor-card">
+                    <div class="card-top">
+                        <div class="doctor-photo-placeholder">JE</div>
+                        <div class="doctor-meta">
+                            <h3>Lic. Javier Esquivel</h3>
+                            <span class="specialty-badge">Nutrición</span>
+                            <div class="doctor-info-row">
+                                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>42 años</span>
+                                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>UNC</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-degree">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                        Lic. en Nutrición Deportiva — UNC
+                    </div>
+                    <div class="card-desc">Nutricionista deportivo con experiencia en alto rendimiento y pérdida de peso saludable. Trabaja con planes personalizados según objetivos y estilo de vida.</div>
+                    <div class="card-reviews">
+                        <p class="reviews-title">Reseñas de pacientes</p>
+                        <div class="review-item">
+                            <div class="review-header"><div class="reviewer-photo-placeholder">MM</div><div class="reviewer-info"><div class="reviewer-name">Matías M.</div><div class="stars">★★★★★</div></div></div>
+                            <p class="review-text">Preparé mi primera maratón con el plan que me armó. Me sentí con más energía que nunca. Impresionante.</p>
+                        </div>
+                        <hr class="review-divider" />
+                        <div class="review-item">
+                            <div class="review-header"><div class="reviewer-photo-placeholder">CF</div><div class="reviewer-info"><div class="reviewer-name">Camila F.</div><div class="stars">★★★★★</div></div></div>
+                            <p class="review-text">El mejor nutricionista que consulté. El plan es realista y me mantiene motivada. Bajé 10 kg en 5 meses.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doctor-card">
+                    <div class="card-top">
+                        <div class="doctor-photo-placeholder">RQ</div>
+                        <div class="doctor-meta">
+                            <h3>Lic. Rosa Quintana</h3>
+                            <span class="specialty-badge">Nutrición</span>
+                            <div class="doctor-info-row">
+                                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>57 años</span>
+                                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>UBA</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-degree">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                        Lic. en Nutrición — UBA · Especialización en Nutrición Pediátrica y del Adulto Mayor
+                    </div>
+                    <div class="card-desc">Con más de 30 años de experiencia, se especializa en nutrición a lo largo del ciclo vital, desde la infancia hasta la tercera edad, con abordaje familiar.</div>
+                    <div class="card-reviews">
+                        <p class="reviews-title">Reseñas de pacientes</p>
+                        <div class="review-item">
+                            <div class="review-header"><div class="reviewer-photo-placeholder">EP</div><div class="reviewer-info"><div class="reviewer-name">Elena P.</div><div class="stars">★★★★★</div></div></div>
+                            <p class="review-text">Nos atiende a toda la familia. Tiene un don especial para adaptar los planes a cada edad. La recomiendo siempre.</p>
+                        </div>
+                        <hr class="review-divider" />
+                        <div class="review-item">
+                            <div class="review-header"><div class="reviewer-photo-placeholder">LV</div><div class="reviewer-info"><div class="reviewer-name">Lorenzo V.</div><div class="stars">★★★★☆</div></div></div>
+                            <p class="review-text">Me ayudó a mejorar la alimentación de mi mamá de 78 años. Muy empática y con mucho conocimiento geriátrico.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doctor-card">
+                    <div class="card-top">
+                        <div class="doctor-photo-placeholder">AN</div>
+                        <div class="doctor-meta">
+                            <h3>Lic. Agustina Neira</h3>
+                            <span class="specialty-badge">Nutrición</span>
+                            <div class="doctor-info-row">
+                                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>28 años</span>
+                                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>UADE</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-degree">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                        Lic. en Nutrición — UADE · Posgrado en Conducta Alimentaria
+                    </div>
+                    <div class="card-desc">Especialista en trastornos de conducta alimentaria y alimentación intuitiva. Enfoque libre de dieta, centrado en la relación saludable con la comida y el cuerpo.</div>
+                    <div class="card-reviews">
+                        <p class="reviews-title">Reseñas de pacientes</p>
+                        <div class="review-item">
+                            <div class="review-header"><div class="reviewer-photo-placeholder">FL</div><div class="reviewer-info"><div class="reviewer-name">Florencia L.</div><div class="stars">★★★★★</div></div></div>
+                            <p class="review-text">Después de años de dietas fallidas, Agustina me enseñó a escuchar mi cuerpo. Fue un cambio de vida real.</p>
+                        </div>
+                        <hr class="review-divider" />
+                        <div class="review-item">
+                            <div class="review-header"><div class="reviewer-photo-placeholder">YS</div><div class="reviewer-info"><div class="reviewer-name">Yanina S.</div><div class="stars">★★★★★</div></div></div>
+                            <p class="review-text">Me trataron un TCA hace dos años y hoy tengo una relación sana con la comida. Sin ella no lo hubiera logrado.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+</div>
+
+<div id="footer"></div>
+
+<script>
+    fetch('../components/header.html')
+        .then(r => r.text())
+        .then(h => document.getElementById('header').innerHTML = h);
+    fetch('../components/footer.html')
+        .then(r => r.text())
+        .then(f => document.getElementById('footer').innerHTML = f);
+
+    function jumpToSpec(sel) {
+        if (!sel.value) return;
+        const btn = document.querySelector(`#specList button[data-target="${sel.value}"]`);
+        if (btn) switchSpec(btn);
+        sel.value = '';
+    }
+
+    function switchSpec(btn) {
+        document.querySelectorAll('#specList button').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.specialty-section').forEach(s => s.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById(btn.dataset.target).classList.add('active');
+        document.querySelector('.main-content').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+</script>
+
+</body>
+</html>
