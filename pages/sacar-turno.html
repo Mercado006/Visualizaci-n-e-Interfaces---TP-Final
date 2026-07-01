@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clínica X — Sacar turno</title>
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/sacar-turno.css" />
+</head>
+<body>
+
+<div id="header"></div>
+
+<!-- ── PAGE HEADER ───────────────────────────────────────── -->
+<header class="page-header">
+    <div class="page-header-inner">
+        <p class="greeting">Bienvenido/a</p>
+        <h1>Hola, Matías — <span>¿cómo te podemos ayudar?</span></h1>
+    </div>
+</header>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!--  VIEW 1: BUSCADOR                                      -->
+<!-- ══════════════════════════════════════════════════════ -->
+<div id="view-search" class="view active">
+    <div class="search-inner">
+
+        <div class="search-layout">
+            <!-- Vertical steps indicator -->
+            <div class="steps-vertical">
+                <div class="step-v-item active" id="step-ind-1">
+                    <div class="step-v-circle">1</div>
+                    <div class="step-v-label">Tipo</div>
+                </div>
+                <div class="step-v-connector" id="step-conn-1"></div>
+                <div class="step-v-item" id="step-ind-2">
+                    <div class="step-v-circle">2</div>
+                    <div class="step-v-label">Quién</div>
+                </div>
+                <div class="step-v-connector" id="step-conn-2"></div>
+                <div class="step-v-item" id="step-ind-3">
+                    <div class="step-v-circle">3</div>
+                    <div class="step-v-label">Especialidad</div>
+                </div>
+            </div>
+
+            <div class="steps-content">
+                <!-- PASO 1: Tipo -->
+                <div class="step-card" id="step1">
+                    <div class="step-card-header">
+                        <div>
+                            <div class="step-badge">Paso 1</div>
+                            <h2>¿Qué tipo de consulta buscás?</h2>
+                            <p>Seleccioná según lo que necesitás</p>
+                        </div>
+                    </div>
+                    <div class="step-card-body">
+                        <div class="tipo-grid">
+                            <button class="tipo-btn selected" onclick="selectTipo(this)">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                                Consulta médica
+                            </button>
+                            <button class="tipo-btn" onclick="selectTipo(this)">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v11m0 0h10m-10 0a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2m0 0V9"/></svg>
+                                Estudios
+                            </button>
+                            <button class="tipo-btn" onclick="selectTipo(this)">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+                                Laboratorio
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PASO 2: Para quién -->
+                <div class="step-card hidden" id="step2">
+                    <div class="step-card-header">
+                        <div>
+                            <div class="step-badge">Paso 2</div>
+                            <h2>¿Para quién es el turno?</h2>
+                            <p>Podés reservar para vos o para alguien de tu familia</p>
+                        </div>
+                    </div>
+                    <div class="step-card-body">
+                        <div class="quien-grid">
+                            <div class="quien-card selected" onclick="selectQuien(this)">
+                                <div class="quien-avatar">🧑</div>
+                                <span>Para Mi</span>
+                                <div class="check">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                </div>
+                            </div>
+                            <div class="quien-card" onclick="selectQuien(this)">
+                                <div class="quien-avatar">👴</div>
+                                <span>Padre</span>
+                                <div class="check">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                </div>
+                            </div>
+                            <div class="quien-card" onclick="selectQuien(this)">
+                                <div class="quien-avatar">👵</div>
+                                <span>Madre</span>
+                                <div class="check">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                </div>
+                            </div>
+                            <div class="quien-card" onclick="selectQuien(this)">
+                                <div class="quien-avatar">🧒</div>
+                                <span>Hijo/a</span>
+                                <div class="check">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                </div>
+                            </div>
+                            <div class="quien-card" onclick="selectQuien(this)">
+                                <div class="quien-avatar">👫</div>
+                                <span>Pareja</span>
+                                <div class="check">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PASO 3: Especialidad y fecha -->
+                <div class="step-card hidden" id="step3">
+                    <div class="step-card-header">
+                        <div>
+                            <div class="step-badge">Paso 3</div>
+                            <h2>Buscá la especialidad que necesitás</h2>
+                            <p>Elegí la especialidad, el formato y la fecha</p>
+                        </div>
+                    </div>
+                    <div class="step-card-body">
+                        <div class="buscar-grid">
+                            <div class="buscar-field">
+                                <label>Especialidad</label>
+                                <div class="select-wrap">
+                                    <select id="especialidad-select">
+                                        <option value="clinica">Clínica Médica</option>
+                                        <option value="cardiologia">Cardiología</option>
+                                        <option value="pediatria">Pediatría</option>
+                                        <option value="dermatologia">Dermatología</option>
+                                        <option value="nutricion">Nutrición</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="formato-group">
+                                <label>Formato</label>
+                                <div class="formato-btns">
+                                    <button class="formato-btn selected" onclick="selectFormato(this)">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                        Presencial
+                                    </button>
+                                    <button class="formato-btn" onclick="selectFormato(this)">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><video/><rect x="2" y="7" width="15" height="11" rx="2"/><path d="M17 9l5-2v10l-5-2"/></svg>
+                                        Videollamada
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="buscar-field" style="max-width:160px">
+                                <label>Fecha desde</label>
+                                <input type="date" id="fecha-input" value="2026-07-01" />
+                            </div>
+
+                            <button class="btn-buscar" onclick="showResults()">
+                                Buscar turnos →
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /steps-content -->
+        </div><!-- /search-layout -->
+
+    </div><!-- /search-inner -->
+</div><!-- /view-search -->
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!--  VIEW 2: RESULTADOS                                    -->
+<!-- ══════════════════════════════════════════════════════ -->
+<div id="view-results" class="view">
+
+    <!-- Top bar compacta -->
+    <div class="results-topbar">
+        <button class="back-btn" onclick="showSearch()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+            Volver
+        </button>
+        <div class="topbar-meta">
+            <div class="meta-chip">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                <span id="result-especialidad">Clínica Médica</span>
+            </div>
+            <div class="meta-chip">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                <span id="result-quien">Para: Yo</span>
+            </div>
+            <div class="meta-chip teal">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                <span id="result-fecha">Desde 01/07/2026</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="results-content">
+
+        <!-- Filtros -->
+        <div class="filters-bar">
+            <span class="filter-label">Filtrar por</span>
+            <select class="filter-select" id="filter-medico" onchange="renderTurnos()">
+                <option value="">Todos los médicos</option>
+                <option value="ramirez">Dr. Ramírez</option>
+                <option value="fernandez">Dra. Fernández</option>
+                <option value="morales">Dr. Morales</option>
+                <option value="vidal">Dra. Vidal</option>
+                <option value="gutierrez">Dr. Gutiérrez</option>
+                <option value="castillo">Dra. Castillo</option>
+                <option value="benitez">Dra. Benítez</option>
+                <option value="herrera">Dr. Herrera</option>
+                <option value="rios">Dra. Ríos</option>
+                <option value="nieto">Dr. Nieto</option>
+                <option value="lopez">Lic. López</option>
+                <option value="esquivel">Lic. Esquivel</option>
+            </select>
+            <select class="filter-select" onchange="renderTurnos()" id="filter-formato">
+                <option value="">Todos los formatos</option>
+                <option value="presencial">Presencial</option>
+                <option value="virtual">Videollamada</option>
+            </select>
+        </div>
+
+        <!-- Días + tarjetas (generado por JS) -->
+        <div id="turnos-container"></div>
+
+    </div>
+</div><!-- /view-results -->
+
+<div id="footer"></div>
+
+<script>
+    /* ── LOAD COMPONENTS ────────────────────────────────────── */
+    fetch('../components/header.html')
+        .then(r => r.text())
+        .then(html => document.getElementById('header').innerHTML = html);
+    fetch('../components/footer.html')
+        .then(r => r.text())
+        .then(html => document.getElementById('footer').innerHTML = html);
+
+    /* ── STEP ADVANCE ──────────────────────────────────────── */
+    function advanceStep(from, to) {
+        document.getElementById(to).classList.remove('hidden');
+        document.getElementById('step-ind-' + to.slice(-1)).classList.add('active');
+        document.getElementById(to).scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    /* ── DATA ──────────────────────────────────────────────── */
+    const TURNOS = {
+        clinica: [
+            { id:1,  medico:'Dr. Ramírez',     key:'ramirez',   dia:'Miércoles 1 de Julio',  hora:'07:30', formato:'presencial' },
+            { id:2,  medico:'Dra. Fernández',  key:'fernandez', dia:'Miércoles 1 de Julio',  hora:'08:00', formato:'presencial' },
+            { id:3,  medico:'Dr. Morales',     key:'morales',   dia:'Miércoles 1 de Julio',  hora:'08:30', formato:'virtual'    },
+            { id:4,  medico:'Dra. Vidal',      key:'vidal',     dia:'Miércoles 1 de Julio',  hora:'09:00', formato:'presencial' },
+            { id:5,  medico:'Dr. Ramírez',     key:'ramirez',   dia:'Miércoles 1 de Julio',  hora:'09:30', formato:'presencial' },
+            { id:6,  medico:'Dra. Fernández',  key:'fernandez', dia:'Miércoles 1 de Julio',  hora:'10:00', formato:'virtual'    },
+            { id:7,  medico:'Dr. Morales',     key:'morales',   dia:'Jueves 2 de Julio',     hora:'08:00', formato:'presencial' },
+            { id:8,  medico:'Dra. Vidal',      key:'vidal',     dia:'Jueves 2 de Julio',     hora:'08:30', formato:'presencial' },
+            { id:9,  medico:'Dr. Ramírez',     key:'ramirez',   dia:'Jueves 2 de Julio',     hora:'09:00', formato:'virtual'    },
+            { id:10, medico:'Dra. Fernández',  key:'fernandez', dia:'Jueves 2 de Julio',     hora:'10:30', formato:'presencial' },
+            { id:11, medico:'Dr. Morales',     key:'morales',   dia:'Viernes 3 de Julio',    hora:'07:00', formato:'presencial' },
+            { id:12, medico:'Dra. Vidal',      key:'vidal',     dia:'Viernes 3 de Julio',    hora:'11:00', formato:'virtual'    },
+        ],
+        cardiologia: [
+            { id:20, medico:'Dr. Gutiérrez',   key:'gutierrez', dia:'Miércoles 1 de Julio',  hora:'08:00', formato:'presencial' },
+            { id:21, medico:'Dra. Castillo',   key:'castillo',  dia:'Miércoles 1 de Julio',  hora:'09:00', formato:'presencial' },
+            { id:22, medico:'Dr. Gutiérrez',   key:'gutierrez', dia:'Miércoles 1 de Julio',  hora:'10:00', formato:'virtual'    },
+            { id:23, medico:'Dra. Castillo',   key:'castillo',  dia:'Jueves 2 de Julio',     hora:'08:30', formato:'presencial' },
+            { id:24, medico:'Dr. Gutiérrez',   key:'gutierrez', dia:'Jueves 2 de Julio',     hora:'09:00', formato:'presencial' },
+            { id:25, medico:'Dra. Castillo',   key:'castillo',  dia:'Viernes 3 de Julio',    hora:'10:00', formato:'virtual'    },
+        ],
+        pediatria: [
+            { id:30, medico:'Dra. Benítez',    key:'benitez',   dia:'Miércoles 1 de Julio',  hora:'08:00', formato:'presencial' },
+            { id:31, medico:'Dr. Herrera',     key:'herrera',   dia:'Miércoles 1 de Julio',  hora:'09:00', formato:'presencial' },
+            { id:32, medico:'Dra. Benítez',    key:'benitez',   dia:'Miércoles 1 de Julio',  hora:'10:00', formato:'virtual'    },
+            { id:33, medico:'Dr. Herrera',     key:'herrera',   dia:'Jueves 2 de Julio',     hora:'08:30', formato:'presencial' },
+            { id:34, medico:'Dra. Benítez',    key:'benitez',   dia:'Viernes 3 de Julio',    hora:'09:00', formato:'presencial' },
+            { id:35, medico:'Dr. Herrera',     key:'herrera',   dia:'Viernes 3 de Julio',    hora:'11:00', formato:'virtual'    },
+        ],
+        dermatologia: [
+            { id:40, medico:'Dra. Ríos',       key:'rios',      dia:'Miércoles 1 de Julio',  hora:'09:00', formato:'presencial' },
+            { id:41, medico:'Dr. Nieto',       key:'nieto',     dia:'Miércoles 1 de Julio',  hora:'10:00', formato:'presencial' },
+            { id:42, medico:'Dra. Ríos',       key:'rios',      dia:'Jueves 2 de Julio',     hora:'08:00', formato:'virtual'    },
+            { id:43, medico:'Dr. Nieto',       key:'nieto',     dia:'Jueves 2 de Julio',     hora:'09:30', formato:'presencial' },
+            { id:44, medico:'Dra. Ríos',       key:'rios',      dia:'Viernes 3 de Julio',    hora:'10:00', formato:'presencial' },
+        ],
+        nutricion: [
+            { id:50, medico:'Lic. López',      key:'lopez',     dia:'Miércoles 1 de Julio',  hora:'08:00', formato:'presencial' },
+            { id:51, medico:'Lic. Esquivel',   key:'esquivel',  dia:'Miércoles 1 de Julio',  hora:'09:30', formato:'virtual'    },
+            { id:52, medico:'Lic. López',      key:'lopez',     dia:'Jueves 2 de Julio',     hora:'08:00', formato:'presencial' },
+            { id:53, medico:'Lic. Esquivel',   key:'esquivel',  dia:'Jueves 2 de Julio',     hora:'10:00', formato:'presencial' },
+            { id:54, medico:'Lic. López',      key:'lopez',     dia:'Viernes 3 de Julio',    hora:'09:00', formato:'virtual'    },
+        ],
+    };
+
+    const ESPEC_LABELS = {
+        clinica:'Clínica Médica', cardiologia:'Cardiología',
+        pediatria:'Pediatría', dermatologia:'Dermatología', nutricion:'Nutrición'
+    };
+
+    /* ── STATE ─────────────────────────────────────────────── */
+    let currentEspec = 'clinica';
+
+    /* ── VIEW SWITCHING ────────────────────────────────────── */
+    function showResults() {
+        currentEspec = document.getElementById('especialidad-select').value;
+        const fecha  = document.getElementById('fecha-input').value;
+        const fmtDate = fecha ? fecha.split('-').reverse().join('/') : '01/07/2026';
+
+        document.getElementById('result-especialidad').textContent = ESPEC_LABELS[currentEspec];
+        document.getElementById('result-fecha').textContent = 'Desde ' + fmtDate;
+
+        const quienEl = document.querySelector('.quien-card.selected span');
+        document.getElementById('result-quien').textContent =
+            'Para: ' + (quienEl ? quienEl.textContent : 'Yo');
+
+        // pre‑filter from selected formato in step 3
+        const selectedBtn = document.querySelector('.formato-btn.selected');
+        const formatoValue = selectedBtn
+            ? (selectedBtn.textContent.trim() === 'Videollamada' ? 'virtual' : 'presencial')
+            : '';
+
+        document.getElementById('filter-medico').value  = '';
+        document.getElementById('filter-formato').value = formatoValue;
+
+        renderTurnos();
+
+        document.getElementById('view-search').classList.remove('active');
+        document.getElementById('view-results').classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function showSearch() {
+        document.getElementById('view-results').classList.remove('active');
+        document.getElementById('view-search').classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    /* ── RENDER TURNOS ─────────────────────────────────────── */
+    function renderTurnos() {
+        const medicoFilter  = document.getElementById('filter-medico').value;
+        const formatoFilter = document.getElementById('filter-formato').value;
+
+        let turnos = (TURNOS[currentEspec] || []).filter(t => {
+            if (medicoFilter  && t.key     !== medicoFilter)  return false;
+            if (formatoFilter && t.formato !== formatoFilter) return false;
+            return true;
+        });
+
+        // group by day
+        const byDay = {};
+        turnos.forEach(t => {
+            if (!byDay[t.dia]) byDay[t.dia] = [];
+            byDay[t.dia].push(t);
+        });
+
+        const container = document.getElementById('turnos-container');
+
+        if (turnos.length === 0) {
+            container.innerHTML = `
+      <div class="empty-state">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <p>No hay turnos disponibles con los filtros seleccionados.<br>Probá cambiar el médico o el formato.</p>
+      </div>`;
+            return;
+        }
+
+        container.innerHTML = Object.entries(byDay).map(([dia, ts]) => `
+    <div class="day-group">
+      <div class="day-title">
+        <h3>${dia}</h3>
+        <div class="day-line"></div>
+        <span class="day-count">${ts.length} turno${ts.length !== 1 ? 's' : ''}</span>
+      </div>
+      <div class="turnos-grid">
+        ${ts.map(t => `
+          <div class="turno-card">
+            <div class="turno-info">
+              <div class="turno-hora">${t.hora} hs</div>
+              <div class="turno-row">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                <strong>${t.medico}</strong>
+              </div>
+              <div class="turno-row">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                <span>${dia}</span>
+              </div>
+              <span class="formato-badge ${t.formato}">
+                ${t.formato === 'presencial'
+            ? `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Presencial`
+            : `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="15" height="11" rx="2"/><path d="M17 9l5-2v10l-5-2"/></svg> Videollamada`
+        }
+              </span>
+            </div>
+            <button class="btn-confirmar" onclick="confirmarTurno(${t.id}, '${t.medico}', '${t.hora}', '${dia}')">
+              Confirmar turno
+            </button>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `).join('');
+    }
+
+    /* ── INTERACTIONS ──────────────────────────────────────── */
+    function selectTipo(btn) {
+        document.querySelectorAll('.tipo-btn').forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected');
+        advanceStep('step1', 'step2');
+    }
+    function selectQuien(card) {
+        document.querySelectorAll('.quien-card').forEach(c => c.classList.remove('selected'));
+        card.classList.add('selected');
+        advanceStep('step2', 'step3');
+    }
+    function selectFormato(btn) {
+        document.querySelectorAll('.formato-btn').forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected');
+    }
+
+    function confirmarTurno(id, medico, hora, dia) {
+        const msg = `✅ Turno confirmado\n\n👨‍⚕️ ${medico}\n📅 ${dia}\n🕐 ${hora} hs\n\nTe enviaremos un recordatorio.`;
+        alert(msg);
+    }
+</script>
+</body>
+</html>

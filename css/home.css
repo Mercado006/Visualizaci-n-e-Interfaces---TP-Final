@@ -20,6 +20,9 @@ body {
     color: var(--text);
     line-height: 1.6;
     padding-top: 60px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 img { max-width: 100%; display: block; }
 

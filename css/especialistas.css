@@ -20,6 +20,9 @@ body {
     color: var(--text);
     line-height: 1.6;
     padding-top: 60px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 img { max-width: 100%; display: block; }
 
@@ -86,6 +89,7 @@ nav {
     margin: 0 auto;
     padding: 48px 5% 80px;
     gap: 40px;
+    flex: 1;
     align-items: flex-start;
 }
 
