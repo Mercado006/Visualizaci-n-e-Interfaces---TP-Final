@@ -1,0 +1,430 @@
+/* ── RESET ───────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+body {
+    font-family: 'Roboto', sans-serif;
+    color: var(--text);
+/*    line-height: 1.6;*/
+    display: flex;
+    flex-direction: column;
+}
+
+/* ── MINI NAV ─────────────────────────────────────────── */
+.top-bar {
+    background: var(--purple);
+    height: 60px;
+    padding: 0 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 12px rgba(65,48,116,.25);
+    flex-shrink: 0;
+}
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--white);
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+.nav-logo svg { width: 26px; height: 26px;
+}
+.back-link {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: rgba(255,255,255,.75);
+    font-size: .88rem;
+    font-weight: 600;
+    text-decoration: none;
+    letter-spacing: .02em;
+    transition: color .2s;
+}
+.back-link:hover { color: var(--teal); }
+.back-link svg { width: 16px; height: 16px; }
+
+/* ── SPLIT LAYOUT ─────────────────────────────────────── */
+.auth-wrapper {
+    flex: 1;
+    display: flex;
+    min-height: 100vh;
+}
+
+/* ── PANEL IZQUIERDO: MARCA ──────────────────────────── */
+.brand-panel {
+    width: 45%;
+    background: linear-gradient(150deg, var(--purple) 0%, #5a4a90 55%, #2e7a9e 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 64px 8%;
+    position: relative;
+    overflow: hidden;
+}
+
+/* círculos decorativos de fondo */
+.brand-panel::before,
+.brand-panel::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    opacity: .08;
+}
+.brand-panel::before {
+    width: 480px; height: 480px;
+    background: var(--teal);
+    bottom: -160px; right: -120px;
+}
+.brand-panel::after {
+    width: 260px; height: 260px;
+    background: var(--white);
+    top: -80px; left: -60px;
+}
+
+.brand-content { position: relative; z-index: 1; }
+.brand-eyebrow {
+    font-size: .75rem;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 18px;
+}
+.brand-panel h2 {
+    font-family: 'Merriweather', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(1.8rem, 2.5vw, 2.5rem);
+    color: var(--white);
+    line-height: 1.25;
+    margin-bottom: 22px;
+}
+.brand-panel h2 strong {
+    font-style: normal;
+    font-weight: 900;
+    color: var(--teal);
+}
+.brand-panel p {
+    color: rgba(255,255,255,.70);
+    font-size: .94rem;
+    line-height: 1.7;
+    max-width: 360px;
+}
+
+/* pilares de confianza */
+.trust-list {
+    list-style: none;
+    margin-top: 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+.trust-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: rgba(255,255,255,.85);
+    font-size: .88rem;
+    font-weight: 600;
+}
+.trust-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--teal);
+    flex-shrink: 0;
+}
+
+/* ── PANEL DERECHO: FORMULARIO ────────────────────────── */
+.form-panel {
+    flex: 1;
+    background: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 6%;
+}
+.form-card {
+    background: var(--white);
+    border-radius: 16px;
+    box-shadow: 0 4px 32px rgba(65,48,116,.10);
+    padding: 44px 40px;
+    width: 100%;
+    max-width: 420px;
+    max-height: 100%;
+}
+.form-card-eyebrow {
+    font-size: .74rem;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 8px;
+}
+.form-card h1 {
+    font-family: 'Merriweather', serif;
+    font-weight: 700;
+    font-size: 1.55rem;
+    color: var(--purple);
+    line-height: 1.2;
+    margin-bottom: 4px;
+}
+.form-card .subtitle {
+    color: var(--muted);
+    font-size: .88rem;
+    margin-bottom: 32px;
+}
+.form-card .subtitle a {
+    color: var(--teal);
+    font-weight: 700;
+    text-decoration: none;
+}
+.form-card .subtitle a:hover { text-decoration: underline; }
+
+/* ── CAMPOS ──────────────────────────────────────────── */
+.field { margin-bottom: 20px; }
+.field label {
+    display: block;
+    font-size: .78rem;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--lavender);
+    margin-bottom: 7px;
+}
+.input-wrap { position: relative; }
+.input-wrap svg {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 17px; height: 17px;
+    color: var(--lavender);
+    pointer-events: none;
+    transition: color .2s;
+}
+.field input {
+    width: 100%;
+    padding: 12px 14px 12px 42px;
+    border: 1.5px solid rgba(65,48,116,.18);
+    border-radius: 8px;
+    font-family: 'Roboto', sans-serif;
+    font-size: .95rem;
+    color: var(--text);
+    background: var(--bg);
+    outline: none;
+    transition: border-color .2s, box-shadow .2s;
+}
+.field input::placeholder { color: #b0b7c3; }
+.field input:focus {
+    border-color: var(--teal);
+    box-shadow: 0 0 0 3px rgba(15,183,184,.15);
+    background: var(--white);
+}
+.field input:focus + svg,
+.input-wrap:focus-within svg { color: var(--teal); }
+
+/* ojo para ver contraseña */
+.toggle-pw {
+    position: absolute;
+    right: 13px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 19px;
+    color: var(--lavender);
+    transition: color .2s;
+    display: flex;
+    align-items: center;
+}
+.toggle-pw:hover { color: var(--purple); }
+.toggle-pw svg { width: 17px; height: 17px; }
+
+/* mensaje de error */
+.field-error {
+    margin-top: 6px;
+    font-size: .78rem;
+    color: var(--error);
+    font-weight: 600;
+    display: none;
+}
+.field.has-error input { border-color: var(--error); }
+.field.has-error .field-error { display: block; }
+
+/* ── OPCIONES SECUNDARIAS ─────────────────────────────── */
+/* .form-options {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 26px;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+.remember-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+.remember-wrap input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 17px; height: 17px;
+    border: 1.5px solid rgba(65,48,116,.28);
+    border-radius: 4px;
+    background: var(--bg);
+    cursor: pointer;
+    transition: background .15s, border-color .15s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+.remember-wrap input[type="checkbox"]:checked {
+    background: var(--teal);
+    border-color: var(--teal);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='2 6 5 9 10 3'/%3E%3C/svg%3E");
+    background-size: 65%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.remember-wrap span {
+    font-size: .85rem;
+    color: var(--muted);
+    user-select: none;
+}
+.forgot-link {
+    font-size: .85rem;
+    font-weight: 600;
+    color: var(--purple);
+    text-decoration: none;
+    transition: color .2s;
+}
+.forgot-link:hover { color: var(--teal); } */
+
+/* ── BOTÓN PRINCIPAL ──────────────────────────────────── */
+.btn-submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    background: var(--teal);
+    color: var(--white);
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: .04em;
+    padding: 14px 20px;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    transition: background .2s, transform .15s, box-shadow .2s;
+    box-shadow: 0 4px 16px rgba(15,183,184,.3);
+}
+.btn-submit:hover {
+    background: #0ea0a1;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(15,183,184,.4);
+}
+.btn-submit:active { transform: translateY(0); }
+.btn-submit svg { width: 17px; height: 17px; }
+
+/* ── DIVISOR ──────────────────────────────────────────── */
+.or-divider {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 24px 0;
+    color: var(--muted);
+    font-size: .8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .07em;
+}
+.or-divider::before, .or-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(65,48,116,.12);
+}
+
+/* ── ACCESO OBRA SOCIAL ───────────────────────────────── */
+.btn-obra-social {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    background: transparent;
+    color: var(--purple);
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: .9rem;
+    letter-spacing: .02em;
+    padding: 12px 20px;
+    border-radius: 50px;
+    border: 2px solid var(--purple);
+    cursor: pointer;
+    transition: background .2s, color .2s, transform .15s;
+}
+.btn-obra-social:hover {
+    background: var(--purple);
+    color: var(--white);
+    transform: translateY(-2px);
+}
+.btn-obra-social svg { width: 17px; height: 17px; }
+
+/* ── REGISTRO ─────────────────────────────────────────── */
+.register-prompt {
+    text-align: center;
+    margin-top: 26px;
+    font-size: .87rem;
+    color: var(--muted);
+}
+.register-prompt a {
+    color: var(--purple);
+    font-weight: 700;
+    text-decoration: none;
+}
+.register-prompt a:hover { color: var(--teal); }
+
+/* ── FOOTER MÍNIMO ────────────────────────────────────── */
+footer {
+    background: var(--text);
+    color: rgba(255,255,255,.5);
+    text-align: center;
+    padding: 16px 5%;
+    font-size: .78rem;
+    flex-shrink: 0;
+}
+
+/* ── RESPONSIVE ──────────────────────────────────────── */
+/*no tocar por el amor de dios*/
+@media (max-width: 860px) {
+    .brand-panel { display: none; }
+    .form-panel { padding: 0% 5% 25%; background: var(--bg); }
+    .auth-wrapper{
+        margin-top: 0%;
+        min-height: calc(100vh - 60px - 144px);
+    }
+    header {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+    }
+    #footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+    }
+
+}
+@media (max-width: 480px) {
+    .form-card { padding: 32px 22px; border-radius: 14px;
+    }
+}

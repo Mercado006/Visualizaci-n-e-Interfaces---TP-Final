@@ -4,8 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mi perfil — Clínica X</title>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Roboto:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/perfil.css">
+    <script src="../js/script.js" defer></script>
 </head>
 <body>
 
@@ -114,7 +115,7 @@
         <section class="card" id="turnos">
             <div class="card-header">
                 <h2>Próximos turnos</h2>
-                <a href="#" class="btn-primary">Sacar turno</a>
+                <a href="sacar-turno.html" class="btn-primary">Sacar turno</a>
             </div>
 
             <div class="appt-row">
@@ -205,17 +206,7 @@
 
     </main>
 </div>
-
-<div id="footer"></div>
-
-<script>
-    fetch('../components/header.html')
-        .then(r => r.text())
-        .then(h => document.getElementById('header').innerHTML = h);
-    fetch('../components/footer.html')
-        .then(r => r.text())
-        .then(f => document.getElementById('footer').innerHTML = f);
-</script>
-
 </body>
+<div id="footer-perfil"></div>
+
 </html>
