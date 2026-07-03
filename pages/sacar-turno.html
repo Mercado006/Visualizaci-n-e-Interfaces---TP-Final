@@ -432,6 +432,40 @@
         const msg = `✅ Turno confirmado\n\n👨‍⚕️ ${medico}\n📅 ${dia}\n🕐 ${hora} hs\n\nTe enviaremos un recordatorio.`;
         alert(msg);
     }
+    function confirmarTurno(id, medico, hora, dia) {
+
+    // eliminar modales anteriores (evita duplicados)
+    const old = document.querySelector(".confirmacion-overlay");
+    if (old) old.remove();
+
+    const modal = document.createElement("div");
+
+    modal.className = "confirmacion-overlay";
+
+    modal.innerHTML = `
+        <div class="confirmacion-card">
+            <div class="check">✓</div>
+
+            <h2>¡Turno confirmado!</h2>
+
+            <p>Tu turno fue reservado correctamente.</p>
+
+            <div class="datos-turno">
+                <p><strong>Profesional:</strong> ${medico}</p>
+                <p><strong>Fecha:</strong> ${dia}</p>
+                <p><strong>Hora:</strong> ${hora} hs</p>
+            </div>
+
+            <button class="btn-cerrar">Entendido</button>
+        </div>
+    `;
+
+    document.body.appendChild(modal);
+
+    modal.querySelector(".btn-cerrar").addEventListener("click", () => {
+        modal.remove();
+    });
+    }
 </script>
 </body>
 </html>
