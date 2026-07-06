@@ -360,9 +360,118 @@ function initRegistro() {
     });
 }
 
+/* HISTORIAL CLÍNICO - FILTRO POR ESPECIALIDAD */
+function initHistorialFilter() {
+    const wrap = document.getElementById('filterWrap');
+    if (!wrap) return;
+
+    const btn = document.getElementById('filterBtn');
+    const menu = document.getElementById('filterMenu');
+    const label = document.getElementById('filterLabel');
+    const emptyNote = document.getElementById('filterEmptyNote');
+    const items = document.querySelectorAll('#timelineList .timeline-item');
+    const options = menu.querySelectorAll('.filter-option');
+
+    function closeMenu() {
+        wrap.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+    }
+
+    function toggleMenu() {
+        const isOpen = wrap.classList.toggle('open');
+        btn.setAttribute('aria-expanded', String(isOpen));
+    }
+
+    btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleMenu();
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!wrap.contains(e.target)) closeMenu();
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeMenu();
+    });
+
+    options.forEach(option => {
+        option.addEventListener('click', () => {
+            const specialty = option.dataset.specialty;
+
+            let visibleCount = 0;
+            items.forEach(item => {
+                const match = specialty === 'all' || item.dataset.specialty === specialty;
+                item.style.display = match ? '' : 'none';
+                if (match) visibleCount++;
+            });
+
+            options.forEach(o => o.classList.remove('selected'));
+            option.classList.add('selected');
+
+            label.textContent = specialty === 'all'
+                ? 'Filtrar por especialidad'
+                : option.textContent.trim();
+
+            if (emptyNote) emptyNote.classList.toggle('visible', visibleCount === 0);
+
+            closeMenu();
+        });
+    });
+}
+
+/* SEGURIDAD */
+function initSecurityForm() {
+    const form = document.getElementById('securityPasswordForm');
+    if (!form) return;
+
+    const $ = id => document.getElementById(id);
+
+    /* Mostrar / ocultar contraseña */
+    function setupToggle(btnId, inputId, openId, closedId) {
+        const toggleBtn = $(btnId);
+        const input = $(inputId);
+        if (!toggleBtn || !input) return;
+
+        toggleBtn.addEventListener('click', () => {
+            const visible = input.type === 'text';
+            input.type = visible ? 'password' : 'text';
+            $(openId).style.display = visible ? 'block' : 'none';
+            $(closedId).style.display = visible ? 'none' : 'block';
+            toggleBtn.setAttribute(
+                'aria-label',
+                visible ? 'Mostrar contraseña' : 'Ocultar contraseña'
+            );
+        });
+    }
+
+    setupToggle('toggleNewPw', 'newPassword', 'newPwEyeOpen', 'newPwEyeClosed');
+    setupToggle('toggleConfirmPw', 'confirmNewPassword', 'confirmPwEyeOpen', 'confirmPwEyeClosed');
+
+    /* El formulario de cambio de contraseña todavía no está conectado al backend */
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+    });
+
+    /* Toggle de verificación en dos pasos */
+    const twoFaToggle = $('twoFaToggle');
+    const twoFaDetail = $('twoFaDetail');
+    if (twoFaToggle) {
+        twoFaToggle.addEventListener('click', () => {
+            const active = twoFaToggle.getAttribute('aria-checked') === 'true';
+            twoFaToggle.setAttribute('aria-checked', String(!active));
+            if (twoFaDetail) twoFaDetail.classList.toggle('visible', !active);
+        });
+    }
+
+    /* El cierre de sesiones todavía no está conectado al backend */
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     initLayout();
     initSidebarScrollSpy();
     initLoginForm();
     initRegistro();
+    initHistorialFilter();
+    initSecurityForm();
 });

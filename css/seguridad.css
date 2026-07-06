@@ -1,0 +1,135 @@
+/* ── FORMULARIO DE CONTRASEÑA ─────────────────────────── */
+#securityPasswordForm {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 420px;
+}
+.sec-field { display: flex; flex-direction: column; gap: 6px; }
+.sec-field label {
+    font-size: .82rem;
+    font-weight: 700;
+    color: var(--text);
+}
+.sec-input-wrap { position: relative; }
+.sec-field input {
+    width: 100%;
+    padding: 11px 42px 11px 14px;
+    border: 1.5px solid rgba(65,48,116,.18);
+    border-radius: 8px;
+    font-size: .92rem;
+    font-family: 'Roboto', sans-serif;
+    color: var(--text);
+    background: var(--white);
+    transition: border-color .15s;
+}
+.sec-field input:focus {
+    outline: none;
+    border-color: var(--teal);
+}
+.sec-toggle-pw {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--muted);
+    display: flex;
+    padding: 4px;
+}
+.sec-toggle-pw:hover { color: var(--purple); }
+
+#securityPasswordForm .btn-primary { align-self: flex-start; }
+
+/* ── VERIFICACIÓN EN DOS PASOS ────────────────────────── */
+.twofa-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.twofa-title { font-weight: 700; font-size: .95rem; margin-bottom: 4px; }
+.twofa-desc { color: var(--muted); font-size: .87rem; max-width: 480px; line-height: 1.55; }
+
+.toggle-switch {
+    position: relative;
+    flex-shrink: 0;
+    width: 46px;
+    height: 26px;
+    border-radius: 50px;
+    background: rgba(65,48,116,.2);
+    border: none;
+    cursor: pointer;
+    transition: background .2s;
+}
+.toggle-switch[aria-checked="true"] { background: var(--teal); }
+.toggle-knob {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--white);
+    box-shadow: 0 1px 4px rgba(0,0,0,.2);
+    transition: transform .2s;
+}
+.toggle-switch[aria-checked="true"] .toggle-knob { transform: translateX(20px); }
+
+.twofa-detail {
+    display: none;
+    align-items: center;
+    gap: 10px;
+    margin-top: 18px;
+    padding: 14px 16px;
+    background: var(--bg);
+    border-radius: 8px;
+    font-size: .87rem;
+    color: var(--text);
+    flex-wrap: wrap;
+}
+.twofa-detail svg { color: var(--teal); flex-shrink: 0; }
+.twofa-detail.visible { display: flex; }
+.twofa-detail span { flex: 1; }
+
+/* ── SESIONES ACTIVAS ─────────────────────────────────── */
+.session-list { list-style: none; }
+.session-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 4px;
+    border-bottom: 1px solid rgba(65,48,116,.08);
+    flex-wrap: wrap;
+    border-radius: 8px;
+    transition: background .15s, opacity .2s;
+}
+.session-row:hover { background: rgba(65,48,116,.02); }
+.session-row:last-of-type { border-bottom: none; padding-bottom: 4px; }
+.session-row.removing { opacity: 0; }
+
+.session-icon {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(115,111,161,.15);
+    color: var(--lavender);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.session-info { flex: 1; min-width: 180px; }
+.session-device { font-weight: 700; font-size: .92rem; }
+.session-meta { color: var(--muted); font-size: .82rem; margin-top: 1px; }
+
+.badge-current { background: rgba(15,183,184,.12); color: #0a8b8c; }
+
+/* ── RESPONSIVE ──────────────────────────────────────── */
+@media (max-width: 600px) {
+    #securityPasswordForm { max-width: 100%; }
+    .twofa-row { align-items: flex-start; }
+}
