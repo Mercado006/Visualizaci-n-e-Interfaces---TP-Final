@@ -6,6 +6,7 @@
     <title>Clínica X — Quiénes somos</title>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Roboto:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="../css/quienes-somos.css" />
+    <script src="../js/script.js" defer></script>
 </head>
 <body>
 
@@ -172,15 +173,6 @@
 </section>
 
 <div id="footer"></div>
-
-<script>
-    fetch('../components/header.html')
-        .then(r => r.text())
-        .then(h => document.getElementById('header').innerHTML = h);
-    fetch('../components/footer.html')
-        .then(r => r.text())
-        .then(f => document.getElementById('footer').innerHTML = f);
-</script>
 
 </body>
 </html>
