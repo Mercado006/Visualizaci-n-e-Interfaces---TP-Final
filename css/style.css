@@ -14,6 +14,7 @@
     --radius:   12px;
     --rose:     #b3475e;
     --error:    red;
+    --nav-height: 120px;
 }
 
 /* ── RESET ───────────────────────────────────────────── */
@@ -25,12 +26,49 @@ body {
     color: var(--text);
     line-height: 1.6;
 }
-body.has-fixed-nav { padding-top: 60px; }
 img { max-width: 100%; display: block; }
 a:focus-visible, button:focus-visible {
     outline: 2px solid var(--teal);
     outline-offset: 2px;
 }
+
+/* ── NAVBAR (igual que el resto del sitio) ───────────── */
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--purple);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5%;
+    height: 60px;
+    box-shadow: 0 2px 12px rgba(65,48,116,.25);
+}
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--white);
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+.nav-logo svg { width: 26px; height: 26px;
+}
+.nav-links { display: flex; align-items: center; gap: 28px; list-style: none;
+}
+.nav-links a {
+    color: var(--nav-links);
+    text-decoration: none;
+    font-size: .92rem;
+    font-weight: 600;
+    letter-spacing: .03em;
+    transition: color .2s;
+}
+.nav-links a:hover { color: var(--teal); }
+.nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+.nav-hamburger span { width: 24px; height: 2px; background: var(--white); border-radius: 2px; }
 
 /* ── BOTONES (igual que el resto del sitio) ──────────── */
 .btn-primary {
@@ -105,6 +143,10 @@ footer .footer-social a:hover { color: var(--teal); }
 footer .footer-social svg { width: 20px; height: 20px; }
 
 /* ── RESPONSIVE ──────────────────────────────────────── */
+/*@media (min-width: 1200px) {
+    nav { padding: 0 8%; height: var(--nav-height); }
+    .profile-sidebar { top: calc(var(--nav-height) + 8px); }
+}*/
 @media (max-width: 900px) {
     .profile-layout { flex-direction: column; }
     .profile-sidebar { width: 100%; position: static; }
@@ -114,13 +156,11 @@ footer .footer-social svg { width: 20px; height: 20px; }
     .quick-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
     .profile-hero { padding: 32px 6% 28px; }
     .appt-row { gap: 12px; }
     .appt-actions { width: 100%; justify-content: flex-end; }
     footer { flex-direction: column; text-align: center; }
     footer .footer-social { justify-content: center; }
-}
-
-@media (min-width: 1200px) {
-    body.has-fixed-nav { padding-top: 72px; }
 }
