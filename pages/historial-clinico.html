@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../css/perfil.css">
     <link rel="stylesheet" href="../css/historial-clinico.css">
     <script src="../js/script.js" defer></script>
+    
 </head>
 <body>
 
@@ -211,14 +212,6 @@
 
 <div id="footer"></div>
 
-<script>
-    fetch('../components/header.html')
-        .then(r => r.text())
-        .then(h => document.getElementById('header').innerHTML = h);
-    fetch('../components/footer.html')
-        .then(r => r.text())
-        .then(f => document.getElementById('footer').innerHTML = f);
-</script>
 
 </body>
 </html>

@@ -3,10 +3,40 @@ function loadComponent(selector, url) {
     const element = document.getElementById(selector);
     if (!element) return;
 
-    fetch(url)
+        fetch(url)
         .then(response => response.text())
         .then(html => {
             element.innerHTML = html;
+
+            const loginLink = document.getElementById("login-link");
+
+            if (!loginLink) return;
+
+            const estaLogueado = localStorage.getItem("logueado") === "true";
+
+            const paginaActual = window.location.pathname;
+
+            if (estaLogueado) {
+
+                if (paginaActual.includes("perfil.html")) {
+                    loginLink.textContent = "Cerrar sesión";
+                    loginLink.href = "#";
+                    loginLink.onclick = () => {
+                        localStorage.removeItem("logueado");
+                        window.location.href = "home.html";
+                    };
+
+                } else {
+                    loginLink.textContent = "Ver perfil";
+                    loginLink.href = "../pages/perfil.html";
+                }
+
+            } else {
+
+                loginLink.textContent = "Iniciar sesión";
+                loginLink.href = "../pages/login.html";
+
+            }
         });
 }
 function initLayout() {
@@ -101,6 +131,7 @@ function initLoginForm() {
 
         if (valid) {
             // Aquí irá la llamada al backend
+            localStorage.setItem("logueado", "true");
             window.location.href = 'perfil.html';
         }
     });
