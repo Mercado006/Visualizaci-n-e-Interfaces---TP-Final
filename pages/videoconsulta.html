@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Videoconsulta — Clínica X</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/videoconsulta.css">
+    <script src="../js/videoconsulta.js" defer></script>
+</head>
+<body>
+<!-- ════════════════════════════════════════════════════════
+     PANTALLA 1: SALA DE ESPERA
+════════════════════════════════════════════════════════ -->
+<div class="screen active" id="screenWait">
+
+    <header class="wait-topbar">
+        <a href="index.html" class="nav-logo">
+            <svg viewBox="0 0 26 26" fill="none"><rect x="10" y="2" width="6" height="22" rx="3" fill="#0FB7B8"/><rect x="2" y="10" width="22" height="6" rx="3" fill="#0FB7B8"/></svg>
+            Clínica X
+        </a>
+        <div class="appt-badge">
+            <div class="dot"></div>
+            <span>Consulta programada para hoy · 15:30</span>
+        </div>
+        <div style="width:120px"></div><!-- spacer -->
+    </header>
+
+    <main class="wait-body">
+
+        <!-- preview cámara -->
+        <div class="preview-card">
+            <h2>Revisá tu cámara y micrófono</h2>
+
+            <div class="camera-preview">
+                <div class="self-avatar">MG</div>
+                <span class="cam-off-label">Vista previa de tu cámara</span>
+            </div>
+
+            <div class="preview-controls">
+                <button class="prev-btn" id="prevMicBtn">
+                    <svg id="prevMicIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10a7 7 0 0 0 14 0"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="9" y1="23" x2="15" y2="23"/></svg>
+                    Micrófono
+                </button>
+                <button class="prev-btn" id="prevCamBtn">
+                    <svg id="prevCamIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 7 16 12l7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+                    Cámara
+                </button>
+            </div>
+
+            <div class="sys-checks">
+                <div class="sys-check">
+                    <div class="check-icon ok">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    </div>
+                    Conexión a internet — Estable
+                </div>
+                <div class="sys-check">
+                    <div class="check-icon ok">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    </div>
+                    Micrófono — Detectado
+                </div>
+                <div class="sys-check">
+                    <div class="check-icon ok">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    </div>
+                    Cámara — Detectada
+                </div>
+            </div>
+        </div>
+
+        <!-- info turno y botón unirse -->
+        <div class="info-card">
+            <div class="appt-info-header">
+                <div class="doc-avatar">VS</div>
+                <div class="doc-info">
+                    <p class="doc-name">Dra. Valeria Suárez</p>
+                    <p class="doc-spec">Cardiología · Consulta virtual</p>
+                </div>
+            </div>
+
+            <hr class="divider-thin" />
+
+            <div class="appt-meta">
+                <div class="meta-row">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                    <span>Hoy, <strong>10 de julio de 2025</strong></span>
+                </div>
+                <div class="meta-row">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    <span><strong>15:30</strong> — duración estimada 30 min</span>
+                </div>
+                <div class="meta-row">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/></svg>
+                    <span>Motivo: <strong>Control de rutina</strong></span>
+                </div>
+            </div>
+
+            <hr class="divider-thin" />
+
+            <div class="tips-box">
+                <strong>Antes de unirte</strong>
+                Buscá un lugar tranquilo y bien iluminado. Tené a mano tu DNI y carné de obra social.
+            </div>
+
+            <button class="btn-join" id="btnJoin">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 7 16 12l7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+                Ingresar a la consulta
+            </button>
+        </div>
+
+    </main>
+
+    <footer class="wait-footer">
+        Si tenés problemas técnicos escribinos a soporte@clinicax.com.ar
+    </footer>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════════
+     PANTALLA 2: EN CONSULTA
+════════════════════════════════════════════════════════ -->
+<div class="screen" id="screenCall">
+
+    <!-- barra superior -->
+    <div class="call-topbar">
+        <div class="call-doc-info">
+            <div class="call-doc-avatar">VS</div>
+            <div>
+                <div class="call-doc-name">Dra. Valeria Suárez</div>
+                <div class="call-doc-spec">Cardiología</div>
+            </div>
+        </div>
+        <div class="call-meta">
+            <div class="live-badge"><div class="dot"></div>En vivo</div>
+            <div class="call-timer" id="callTimer">00:00</div>
+            <div class="quality-icon">
+                <div class="quality-bars">
+                    <div></div><div></div><div></div><div></div>
+                </div>
+                <span>Buena</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- video remoto -->
+    <div class="remote-video">
+        <div class="remote-video-noise"></div>
+        <div class="remote-avatar-wrap">
+            <div class="remote-avatar">VS</div>
+            <div class="remote-name">Dra. Valeria Suárez</div>
+            <div class="remote-speaking">
+                <div class="speak-waves">
+                    <div class="speak-wave"></div>
+                    <div class="speak-wave"></div>
+                    <div class="speak-wave"></div>
+                </div>
+                Hablando
+            </div>
+        </div>
+    </div>
+
+    <!-- self PiP -->
+    <div class="self-pip" id="selfPip">
+        <div class="pip-avatar">MG</div>
+        <span class="self-pip-label">Vos</span>
+    </div>
+
+    <!-- panel de chat -->
+    <div class="chat-panel" id="chatPanel">
+        <div class="chat-header">
+            <h3>Chat de consulta</h3>
+            <button class="chat-close" id="chatClose">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+            <div class="msg them">
+                <div class="msg-sender">Dra. Suárez</div>
+                <div class="msg-bubble">Hola Mariana, ¿cómo estás hoy? 😊</div>
+            </div>
+            <div class="msg me">
+                <div class="msg-sender">Vos</div>
+                <div class="msg-bubble">Bien, gracias! Tengo algunas dudas sobre los resultados del último análisis.</div>
+            </div>
+            <div class="msg them">
+                <div class="msg-sender">Dra. Suárez</div>
+                <div class="msg-bubble">Claro, los tengo en pantalla. ¿Podés contarme qué síntomas estás notando?</div>
+            </div>
+        </div>
+        <div class="chat-input-row">
+            <input class="chat-input" id="chatInput" type="text" placeholder="Escribí un mensaje…" />
+            <button class="chat-send" id="chatSend">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- controles -->
+    <div class="call-controls">
+        <div class="ctrl-wrap">
+            <button class="ctrl-btn active" id="micBtn" title="Silenciar micrófono">
+                <svg id="micOn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10a7 7 0 0 0 14 0"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="9" y1="23" x2="15" y2="23"/></svg>
+                <svg id="micOff" style="display:none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="1" y1="1" x2="23" y2="23"/><path d="M9 9v3a3 3 0 0 0 5.12 2.12"/><path d="M15 9.34V5a3 3 0 0 0-5.94-.6"/><path d="M17 16.95A7 7 0 0 1 5 10v-1"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="9" y1="23" x2="15" y2="23"/></svg>
+            </button>
+            <span class="ctrl-label" id="micLabel">Micrófono</span>
+        </div>
+        <div class="ctrl-wrap">
+            <button class="ctrl-btn active" id="camBtn" title="Apagar cámara">
+                <svg id="camOn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 7 16 12l7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+                <svg id="camOff" style="display:none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="1" y1="1" x2="23" y2="23"/><path d="M21 21H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h3"/><path d="M23 7l-7 5 7 5V7z"/></svg>
+            </button>
+            <span class="ctrl-label" id="camLabel">Cámara</span>
+        </div>
+        <div class="ctrl-wrap">
+            <button class="ctrl-btn" id="shareBtn" title="Compartir pantalla">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><polyline points="8 21 12 17 16 21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </button>
+            <span class="ctrl-label">Pantalla</span>
+        </div>
+        <div class="ctrl-wrap">
+            <button class="ctrl-btn" id="chatToggle" title="Abrir chat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </button>
+            <span class="ctrl-label">Chat</span>
+        </div>
+        <div class="ctrl-wrap">
+            <button class="ctrl-btn end" id="endCall" title="Finalizar consulta">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.68 13.31a16 16 0 0 0 3.41 2.6l1.27-1.27a2 2 0 0 1 2.11-.45c1.12.45 2.3.78 3.53.9a2 2 0 0 1 1.8 2v3a2 2 0 0 1-2.18 2A19.8 19.8 0 0 1 2.1 4.7 2 2 0 0 1 4.11 2.5h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 10.4a16 16 0 0 0 2.59 2.91z"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+            </button>
+            <span class="ctrl-label" style="color:#e07090;">Finalizar</span>
+        </div>
+    </div>
+
+</div>
+
+
+<!-- ════════════════════════════════════════════════════════
+     PANTALLA 3: CONSULTA FINALIZADA
+════════════════════════════════════════════════════════ -->
+<div class="screen" id="screenEnded">
+    <div class="ended-card">
+        <div class="ended-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h2>Consulta finalizada</h2>
+        <p class="ended-sub">La videoconsulta con la <strong>Dra. Suárez</strong> terminó correctamente. La receta y el resumen de la consulta estarán disponibles en tu perfil.</p>
+        <div class="ended-duration">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Duración: <strong id="finalDuration">00:00</strong>
+        </div>
+        <div class="ended-actions">
+            <a href="recetas-y-estudios.html" class="btn-primary">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                Ver receta digital
+            </a>
+            <a href="perfil.html" class="btn-secondary">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a8 8 0 0 1 16 0v1"/></svg>
+                Volver a mi perfil
+            </a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
