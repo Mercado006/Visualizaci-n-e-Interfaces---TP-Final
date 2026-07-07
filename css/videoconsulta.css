@@ -1076,6 +1076,21 @@ body {
     height: 15px;
 }
 
+.back-link {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: rgba(255,255,255,.75);
+    font-size: .88rem;
+    font-weight: 600;
+    text-decoration: none;
+    letter-spacing: .02em;
+    transition: color .2s;
+}
+.back-link:hover { color: var(--teal); }
+.back-link svg { width: 16px; height: 16px; }
+
+
 /* ── RESPONSIVE ──────────────────────────────────────── */
 @media (max-width: 720px) {
     .wait-body {
@@ -1116,4 +1131,11 @@ body {
     .appt-badge {
         display: none;
     }
+}
+
+@media (min-width: 1200px) {
+    .wait-topbar { padding: 0 8%; height: 72px; }
+    .nav-logo { font-size: 1.35rem; }
+    .nav-logo svg { width: 30px; height: 30px; }
+    .back-link { font-size: .95rem; }
 }

@@ -14,7 +14,6 @@
     --radius:   12px;
     --rose:     #b3475e;
     --error:    red;
-    --nav-height: 120px;
 }
 
 /* ── RESET ───────────────────────────────────────────── */
@@ -26,6 +25,9 @@ body {
     color: var(--text);
     line-height: 1.6;
 }
+
+body.has-fixed-nav { padding-top: 60px; }
+
 img { max-width: 100%; display: block; }
 a:focus-visible, button:focus-visible {
     outline: 2px solid var(--teal);
@@ -33,6 +35,7 @@ a:focus-visible, button:focus-visible {
 }
 
 /* ── NAVBAR (igual que el resto del sitio) ───────────── */
+/* 
 nav {
     position: sticky;
     top: 0;
@@ -69,7 +72,7 @@ nav {
 .nav-links a:hover { color: var(--teal); }
 .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
 .nav-hamburger span { width: 24px; height: 2px; background: var(--white); border-radius: 2px; }
-
+ */
 /* ── BOTONES (igual que el resto del sitio) ──────────── */
 .btn-primary {
     display: inline-flex;
@@ -156,11 +159,16 @@ footer .footer-social svg { width: 20px; height: 20px; }
     .quick-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 768px) {
-    .nav-links { display: none; }
-    .nav-hamburger { display: flex; }
+    /* .nav-links { display: none; }
+    .nav-hamburger { display: flex; } */
     .profile-hero { padding: 32px 6% 28px; }
     .appt-row { gap: 12px; }
     .appt-actions { width: 100%; justify-content: flex-end; }
     footer { flex-direction: column; text-align: center; }
     footer .footer-social { justify-content: center; }
+
+}
+
+@media (min-width: 1200px) {
+    body.has-fixed-nav { padding-top: 72px; }
 }
