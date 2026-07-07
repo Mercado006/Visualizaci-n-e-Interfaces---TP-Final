@@ -6,6 +6,7 @@
     <title>Clínica X — Profesionales</title>
     <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;600;700&family=Amaranth:ital,wght@0,400;0,700;1,400&family=Merriweather:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="../css/especialistas.css" />
+    <script src="../js/script.js" defer></script>
 </head>
 <body>
 
@@ -834,13 +835,6 @@
 <div id="footer"></div>
 
 <script>
-    fetch('../components/header.html')
-        .then(r => r.text())
-        .then(h => document.getElementById('header').innerHTML = h);
-    fetch('../components/footer.html')
-        .then(r => r.text())
-        .then(f => document.getElementById('footer').innerHTML = f);
-
     function jumpToSpec(sel) {
         if (!sel.value) return;
         const btn = document.querySelector(`#specList button[data-target="${sel.value}"]`);
