@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/videoconsulta.css">
     <link rel="stylesheet" href="../css/header.css" />
+    <link rel="stylesheet" href="../css/footer.css" />
+    <script src="../js/script.js" defer></script>
     <script src="../js/videoconsulta.js" defer></script>
 </head>
 <body>
@@ -118,9 +120,7 @@
 
     </main>
 
-    <footer class="wait-footer">
-        Si tenés problemas técnicos escribinos a soporte@clinicax.com.ar
-    </footer>
+    <div id="footer"></div>
 </div>
 
 
@@ -246,28 +246,60 @@
      PANTALLA 3: CONSULTA FINALIZADA
 ════════════════════════════════════════════════════════ -->
 <div class="screen" id="screenEnded">
-    <div class="ended-card">
-        <div class="ended-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-        </div>
-        <h2>Consulta finalizada</h2>
-        <p class="ended-sub">La videoconsulta con la <strong>Dra. Suárez</strong> terminó correctamente. La receta y el resumen de la consulta estarán disponibles en tu perfil.</p>
-        <div class="ended-duration">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            Duración: <strong id="finalDuration">00:00</strong>
-        </div>
-        <div class="ended-actions">
-            <a href="recetas-y-estudios.html" class="btn-primary">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                Ver receta digital
-            </a>
-            <a href="perfil.html" class="btn-secondary">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a8 8 0 0 1 16 0v1"/></svg>
-                Volver a mi perfil
-            </a>
+
+    <header class="wait-topbar">
+        <a href="home.html" class="nav-logo">
+            <svg viewBox="0 0 26 26" fill="none"><rect x="10" y="2" width="6" height="22" rx="3" fill="#0FB7B8"/><rect x="2" y="10" width="22" height="6" rx="3" fill="#0FB7B8"/></svg>
+            Clínica X
+        </a>
+        <a href="perfil.html" class="back-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 18 9 12 15 6"/>
+            </svg>
+            Volver a mi perfil
+        </a>
+    </header>
+
+    <div class="ended-content">
+        <div class="ended-card">
+            <div class="ended-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <h2>Consulta finalizada</h2>
+            <p class="ended-sub">La videoconsulta con la <strong>Dra. Suárez</strong> terminó correctamente. La receta y el resumen de la consulta estarán disponibles en tu perfil.</p>
+            <div class="ended-duration">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                Duración: <strong id="finalDuration">00:00</strong>
+            </div>
+            <div class="ended-actions">
+                <a href="recetas-y-estudios.html" class="btn-primary">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                    Ver receta digital
+                </a>
+                <a href="perfil.html" class="btn-secondary">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a8 8 0 0 1 16 0v1"/></svg>
+                    Volver a mi perfil
+                </a>
+            </div>
         </div>
     </div>
+
+    <div id="footerEnd"></div>
 </div>
+
+<script>
+    /* Carga el footer compartido en la pantalla de "consulta finalizada".
+       Usa un id distinto a "footer" (ya ocupado por la sala de espera)
+       porque un mismo id no puede repetirse en el documento. */
+    document.addEventListener('DOMContentLoaded', () => {
+        const footerEnd = document.getElementById('footerEnd');
+        if (!footerEnd) return;
+
+        fetch('../components/footer.txt')
+            .then(response => response.text())
+            .then(html => { footerEnd.innerHTML = html; });
+    });
+</script>
 
 </body>
 </html>

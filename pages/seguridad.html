@@ -8,9 +8,10 @@
     <link rel="stylesheet" href="../css/perfil.css">
     <link rel="stylesheet" href="../css/seguridad.css">
     <link rel="stylesheet" href="../css/header.css" />
+    <link rel="stylesheet" href="../css/footer.css" />
     <script src="../js/script.js" defer></script>
 </head>
-<body>
+<body class="has-fixed-nav">
 
 <div id="header"></div>
 
@@ -181,10 +182,10 @@
 <div id="footer"></div>
 
 <script>
-    fetch('../components/header.html')
+    fetch('../components/header.txt')
         .then(r => r.text())
         .then(h => document.getElementById('header').innerHTML = h);
-    fetch('../components/footer.html')
+    fetch('../components/footer.txt')
         .then(r => r.text())
         .then(f => document.getElementById('footer').innerHTML = f);
 </script>

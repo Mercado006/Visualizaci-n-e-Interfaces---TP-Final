@@ -291,22 +291,6 @@ nav {
 }
 .review-divider { border: none; border-top: 1px dashed var(--border); margin: 12px 0; }
 
-/* ── FOOTER ─────────────────────────────────────────── */
-footer {
-    background: var(--text);
-    color: rgba(255,255,255,.65);
-    padding: 36px 5%;
-    display: flex; align-items: center; justify-content: space-between;
-    font-family: 'League Spartan', sans-serif;
-    font-size: .82rem; gap: 20px; flex-wrap: wrap;
-}
-footer .footer-logo { color: var(--white); font-size: 1rem; font-weight: 700; }
-footer .footer-center { text-align: center; }
-footer .footer-social { display: flex; align-items: center; gap: 14px; }
-footer .footer-social a { color: rgba(255,255,255,.6); transition: color .2s; }
-footer .footer-social a:hover { color: var(--teal); }
-footer .footer-social svg { width: 20px; height: 20px; }
-
 /* ── RESPONSIVE ─────────────────────────────────────── */
 @media (min-width: 1200px) {
     nav { padding: 0 8%; height: 72px; }
@@ -315,7 +299,6 @@ footer .footer-social svg { width: 20px; height: 20px; }
     .page-body { padding: 56px 8% 100px; gap: 56px; }
     .sidebar { width: 240px; }
     .doctors-grid { grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 32px; }
-    footer { padding: 44px 8%; }
 }
 @media (max-width: 900px) {
     .page-body { flex-direction: column; padding: 32px 4% 60px; }
@@ -328,6 +311,4 @@ footer .footer-social svg { width: 20px; height: 20px; }
     .doctors-grid { grid-template-columns: 1fr; }
     .nav-links { display: none; }
     .nav-hamburger { display: flex; }
-    footer { flex-direction: column; text-align: center; }
-    footer .footer-social { justify-content: center; }
 }

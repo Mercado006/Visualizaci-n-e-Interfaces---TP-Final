@@ -40,8 +40,8 @@ function loadComponent(selector, url) {
         });
 }
 function initLayout() {
-    loadComponent('header', '../components/header.html');
-    loadComponent('footer', '../components/footer.html');
+    loadComponent('header', '../components/header.txt');
+    loadComponent('footer', '../components/footer.txt');
 }
 
 /* SIDEBAR SCROLL */

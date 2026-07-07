@@ -392,16 +392,6 @@ body {
 }
 .register-prompt a:hover { color: var(--teal); }
 
-/* ── FOOTER MÍNIMO ────────────────────────────────────── */
-footer {
-    background: var(--text);
-    color: rgba(255,255,255,.5);
-    text-align: center;
-    padding: 16px 5%;
-    font-size: .78rem;
-    flex-shrink: 0;
-}
-
 /* ── RESPONSIVE ──────────────────────────────────────── */
 /*no tocar por el amor de dios*/
 @media (max-width: 860px) {
@@ -416,13 +406,6 @@ footer {
         width: 100%;
         height: 100%;
     }
-    #footer {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-    }
-
 }
 @media (max-width: 480px) {
     .form-card { padding: 32px 22px; border-radius: 14px;

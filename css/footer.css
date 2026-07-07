@@ -1,0 +1,84 @@
+/* ── FOOTER (compartido en todas las páginas) ─────────── */
+.site-footer {
+    background: var(--text);
+    color: rgba(255,255,255,.65);
+    font-family: 'Roboto', sans-serif;
+    padding: 56px 5% 0;
+}
+
+.footer-top {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 48px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 40px;
+}
+
+/* Marca + tagline + redes */
+.footer-brand { flex: 1.4; min-width: 220px; }
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--white);
+    font-size: 1.15rem;
+    font-weight: 700;
+    text-decoration: none;
+    margin-bottom: 14px;
+}
+.footer-logo svg { width: 24px; height: 24px; }
+.footer-tagline {
+    font-size: .88rem;
+    line-height: 1.6;
+    max-width: 280px;
+    margin-bottom: 20px;
+}
+.footer-social { display: flex; gap: 14px; }
+.footer-social a { color: rgba(255,255,255,.6); transition: color .2s; }
+.footer-social a:hover { color: var(--teal); }
+.footer-social svg { width: 20px; height: 20px; }
+
+/* Columna de enlaces (mismos links que el header) */
+.footer-links { min-width: 160px; }
+.footer-links h4 {
+    color: var(--white);
+    font-size: .8rem;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+}
+.footer-links ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-links a {
+    color: rgba(255,255,255,.65);
+    text-decoration: none;
+    font-size: .9rem;
+    transition: color .2s;
+}
+.footer-links a:hover { color: var(--teal); }
+
+/* Barra inferior */
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,.1);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+    text-align: center;
+    font-size: .8rem;
+}
+
+/* ── RESPONSIVE ──────────────────────────────────────── */
+@media (max-width: 768px) {
+    .footer-top { flex-direction: column; text-align: center; gap: 36px; }
+    .footer-brand { display: flex; flex-direction: column; align-items: center; }
+    .footer-tagline { max-width: 320px; }
+    .footer-social { justify-content: center; }
+    .footer-links ul { align-items: center; }
+}
+
+@media (min-width: 1200px) {
+    .site-footer { padding: 72px 8% 0; }
+    .footer-top { gap: 90px; }
+}

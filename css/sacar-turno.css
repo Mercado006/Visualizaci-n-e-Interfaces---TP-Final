@@ -427,20 +427,6 @@ nav {
 .empty-state svg { width: 48px; height: 48px; margin: 0 auto 16px; color: var(--border); }
 .empty-state p { font-family: 'Roboto', sans-serif; font-size: .95rem; }
 
-/* ── FOOTER ─────────────────────────────────────── */
-footer {
-    background: var(--text); color: rgba(255,255,255,.65);
-    padding: 36px 5%;
-    display: flex; align-items: center; justify-content: space-between;
-    font-family: 'League Spartan', sans-serif; font-size: .82rem;
-    gap: 20px; flex-wrap: wrap;
-}
-footer .footer-logo { color: var(--white); font-size: 1rem; font-weight: 700; }
-footer .footer-center { text-align: center; }
-footer .footer-social { display: flex; align-items: center; gap: 14px; }
-footer .footer-social a { color: rgba(255,255,255,.6); transition: color .2s; }
-footer .footer-social a:hover { color: var(--teal); }
-footer .footer-social svg { width: 20px; height: 20px; }
 .confirmacion-overlay{
     position: fixed !important;
     inset: 0;
@@ -516,7 +502,6 @@ footer .footer-social svg { width: 20px; height: 20px; }
     #view-search { padding: 56px 8% 100px; }
     .results-topbar { padding: 18px 8%; }
     .results-content { padding: 40px 8% 0; }
-    footer { padding: 44px 8%; }
 }
 @media (max-width: 768px) {
     .search-layout { flex-direction: column; gap: 20px; }
