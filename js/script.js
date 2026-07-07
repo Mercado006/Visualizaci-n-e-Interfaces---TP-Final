@@ -498,6 +498,70 @@ function initSecurityForm() {
     /* El cierre de sesiones todavía no está conectado al backend */
 }
 
+/* --------- CANCELACION DE TURNOS --------- */
+function initCancelarTurno() {
+
+    const botonesCancelar = document.querySelectorAll(".btnCancelarTurno");
+    const modal = document.getElementById("modalCancelar");
+
+    if (!botonesCancelar.length || !modal) return;
+
+    const btnNo = document.getElementById("btnNoCancelar");
+    const btnSi = document.getElementById("btnConfirmarCancelar");
+    const mensaje = document.getElementById("mensajeCancelado");
+
+    let turnoSeleccionado = null;
+
+    botonesCancelar.forEach(btn => {
+
+        btn.addEventListener("click", function () {
+
+            turnoSeleccionado = this.closest(".appt-row");
+            modal.classList.add("open");
+
+        });
+
+    });
+
+    btnNo.addEventListener("click", function () {
+
+        modal.classList.remove("open");
+
+    });
+
+    btnSi.addEventListener("click", function () {
+
+    // Cambia el texto mientras "procesa"
+    btnSi.disabled = true;
+    btnSi.textContent = "Cancelando...";
+
+    setTimeout(() => {
+
+        modal.classList.remove("open");
+
+        if (turnoSeleccionado) {
+
+            turnoSeleccionado.classList.add("cancelado");
+
+            const badge = turnoSeleccionado.querySelector(".badge");
+            badge.textContent = "Turno cancelado";
+            badge.className = "badge badge-cancelado";
+
+            turnoSeleccionado.querySelector(".appt-actions").style.display = "none";
+        }
+
+        mensaje.classList.add("show");
+
+        // Restaurar el botón por si se vuelve a abrir el modal
+        btnSi.disabled = false;
+        btnSi.textContent = "Confirmar cancelación";
+
+    }, 600);
+
+});
+
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     initLayout();
     initSidebarScrollSpy();
@@ -505,4 +569,5 @@ document.addEventListener('DOMContentLoaded', () => {
     initRegistro();
     initHistorialFilter();
     initSecurityForm();
+    initCancelarTurno();
 });
