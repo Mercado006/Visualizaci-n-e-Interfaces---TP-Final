@@ -285,6 +285,17 @@
     background:#FFF4F4;
 }
 
+.mensaje-ok {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .3s ease;
+}
+
+.mensaje-ok.show {
+    opacity: 1;
+    visibility: visible;
+}
+
 /* ── ACCESOS RÁPIDOS ──────────────────────────────────── */
 .quick-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
 .quick-card {
