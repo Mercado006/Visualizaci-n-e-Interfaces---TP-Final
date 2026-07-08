@@ -3,39 +3,35 @@ function loadComponent(selector, url) {
     const element = document.getElementById(selector);
     if (!element) return;
 
-        fetch(url)
+    fetch(url)
         .then(response => response.text())
         .then(html => {
             element.innerHTML = html;
 
-            const loginLink = document.getElementById("login-link");
-
-            if (!loginLink) return;
-
             const estaLogueado = localStorage.getItem("logueado") === "true";
 
-            const paginaActual = window.location.pathname;
+            /* Link de "Iniciar sesión" / "Mi perfil" (siempre el mismo texto
+               con sesión iniciada, sin importar en qué página estés) */
+            const loginLink = document.getElementById("login-link");
 
-            if (estaLogueado) {
+            if (loginLink) {
 
-                if (paginaActual.includes("perfil.html")) {
-                    loginLink.textContent = "Cerrar sesión";
-                    loginLink.href = "#";
-                    loginLink.onclick = () => {
-                        localStorage.removeItem("logueado");
-                        window.location.href = "home.html";
-                    };
-
-                } else {
-                    loginLink.textContent = "Ver perfil";
+                if (estaLogueado) {
+                    loginLink.textContent = "Mi perfil";
                     loginLink.href = "../pages/perfil.html";
+                } else {
+                    loginLink.textContent = "Iniciar sesión";
+                    loginLink.href = "../pages/login.html";
                 }
+            }
 
-            } else {
+            /* Botón "Sacar turno": sin sesión te manda a loguearte primero */
+            const turnoLink = document.getElementById("turno-link");
 
-                loginLink.textContent = "Iniciar sesión";
-                loginLink.href = "../pages/login.html";
-
+            if (turnoLink) {
+                turnoLink.href = estaLogueado
+                    ? "../pages/sacar-turno.html"
+                    : "../pages/login.html";
             }
         });
 }
@@ -300,6 +296,9 @@ function initRegistro() {
     $('submitBtn').addEventListener('click', () => {
         if (!validateStep4()) return;
 
+        // El registro exitoso también inicia sesión
+        localStorage.setItem("logueado", "true");
+
         $('step4').classList.remove('active');
         $('progressBar').style.display = 'none';
         $('loginPrompt').style.display = 'none';
@@ -498,6 +497,18 @@ function initSecurityForm() {
     /* El cierre de sesiones todavía no está conectado al backend */
 }
 
+/* CERRAR SESIÓN (link del sidebar en perfil.html) */
+function initLogout() {
+    const logoutLink = document.getElementById('logout');
+    if (!logoutLink) return;
+
+    logoutLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        localStorage.removeItem('logueado');
+        window.location.href = 'home.html';
+    });
+}
+
 /* --------- CANCELACION DE TURNOS --------- */
 function initCancelarTurno() {
 
@@ -570,4 +581,5 @@ document.addEventListener('DOMContentLoaded', () => {
     initHistorialFilter();
     initSecurityForm();
     initCancelarTurno();
+    initLogout();
 });
